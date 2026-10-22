@@ -3,575 +3,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brezzy On The Decks | Official Kenyan DJ & Mix Creator (@DJMESSI-z4b)</title>
-
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="Brezzy On The Decks | Official Kenyan DJ & Mix Creator (@DJMESSI-z4b)">
-    <meta name="description" content="Official website for Brezzy On The Decks (DJ Messi / The Record Breaker). Stream top Kenyan trap, drill, Gengetone, Amapiano, and Afrobeats mixes. Bookings and collaborations in Kenya and worldwide.">
-    <meta name="keywords" content="Brezzy On The Decks, DJ Messi, DJ Messi z4b, Kenyan DJ mixes, Best of Virusi Mbaya Vol 2, Gengetone DJ mixes, Kenyan trap drill, Afrobeats mixes Kenya, Kenyan music mix 2026">
-    <meta name="robots" content="index, follow">
+    <title>Brezzy On The Decks | DJ Messi | Premier Kenyan DJ & Mix Creator</title>
+    <meta name="description" content="Official website for Brezzy On The Decks (DJ Messi / The Record Breaker) based in Kariobangi South, Nairobi. Stream Virusi Mbaya Vol. 2, THE 254 TAKEOVER, and top Kenyan Trap, Drill & Gengetone mixes.">
+    <meta name="keywords" content="Brezzy On The Decks, Brezzy On The Decks Kenya, Brezzy DJ Kenya, DJ Messi, The Record Breaker, Kariobangi South DJ, Kenyan DJ mixes, Virusi Mbaya Vol 2, THE 254 TAKEOVER, Gengetone DJ mixes">
     <meta name="author" content="Brezzy On The Decks">
+    <link rel="canonical" href="https://yourusername.github.io/brezzy-on-the-decks/">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Social Media Sharing -->
+    <meta property="og:title" content="Brezzy On The Decks | DJ Messi | Premier Kenyan DJ">
+    <meta property="og:description" content="Stream Virusi Mbaya Vol. 2, THE 254 TAKEOVER, and high-energy Kenyan Trap, Drill, and Gengetone mixes by Brezzy On The Decks.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.youtube.com/@DJMESSI-z4b">
-    <meta property="og:title" content="Brezzy On The Decks | Official Kenyan DJ & Mix Creator (@DJMESSI-z4b)">
-    <meta property="og:description" content="Stream top Kenyan trap, drill, Gengetone, Amapiano, and Afrobeats mixes by Brezzy On The Decks (DJ Messi / The Record Breaker).">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:url" content="https://yourusername.github.io/brezzy-on-the-decks/">
+    <meta property="og:image" content="https://img.youtube.com/vi/TmeQdQIJXew/maxresdefault.jpg">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.youtube.com/@DJMESSI-z4b">
-    <meta property="twitter:title" content="Brezzy On The Decks | Official Kenyan DJ & Mix Creator">
-    <meta property="twitter:description" content="Stream top Kenyan trap, drill, Gengetone, Amapiano, and Afrobeats mixes by Brezzy On The Decks.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200&auto=format&fit=crop">
-
-    <!-- Tailwind CSS -->
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind CSS & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brandDark: '#0a0a0a',
-                        brandCard: '#121212',
-                        brandNeon: '#22c55e',
-                        brandNeonGlow: '#10b981',
+                        neon: '#00FF66',
+                        darkBg: '#080808',
+                        cardBg: '#121212',
+                        cardHover: '#181818'
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                    boxShadow: {
+                        'neon-glow': '0 0 20px rgba(0, 255, 102, 0.35)',
+                        'neon-glow-lg': '0 0 35px rgba(0, 255, 102, 0.55)'
                     }
                 }
             }
         }
     </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
-            color: #f3f4f6;
-        }
-
-        /* Custom Neon Glow Utilities */
-        .neon-glow-text {
-            text-shadow: 0 0 10px rgba(34, 197, 94, 0.6), 0 0 20px rgba(34, 197, 94, 0.3);
-        }
-        .neon-glow-box {
-            box-shadow: 0 0 25px -5px rgba(34, 197, 94, 0.3);
-        }
-        .glass-card {
-            background: rgba(18, 18, 18, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .glass-card:hover {
-            border-color: rgba(34, 197, 94, 0.4);
-        }
-        
-        /* Pulse Animation for Live Beats */
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.05); }
-        }
-        .bg-pulse {
-            animation: pulseGlow 6s infinite ease-in-out;
-        }
-
-        /* Equalizer Animation */
-        .eq-bar {
-            animation: bounce 1s infinite alternate ease-in-out;
-        }
-        @keyframes bounce {
-            0% { height: 15%; }
-            100% { height: 100%; }
-        }
-    </style>
-
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data (JSON-LD) for Search Engines -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MusicGroup",
-      "name": "BREZZY ON THE DECKS",
-      "alternateName": ["DJ Messi", "The Record Breaker", "@DJMESSI-z4b"],
-      "url": "https://www.youtube.com/@DJMESSI-z4b",
-      "genre": ["Kenyan Trap", "Drill", "Gengetone", "Amapiano", "Afrobeats", "R&B"],
-      "locationCreated": {
-        "@type": "Place",
-        "name": "Nairobi, Kenya"
+      "@type": "Person",
+      "name": "Brezzy On The Decks",
+      "alternateName": ["DJ Messi", "The Record Breaker"],
+      "url": "https://yourusername.github.io/brezzy-on-the-decks/",
+      "image": "https://img.youtube.com/vi/TmeQdQIJXew/maxresdefault.jpg",
+      "jobTitle": "DJ & Mix Creator",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kariobangi South",
+        "addressLocality": "Nairobi",
+        "addressCountry": "KE"
       },
+      "email": "oloostephan488@gmail.com",
+      "telephone": "+254117641510",
       "sameAs": [
         "https://www.youtube.com/@DJMESSI-z4b"
-      ],
-      "description": "Brezzy On The Decks (DJ Messi / The Record Breaker) is a premier Kenyan DJ and mix creator specializing in Kenyan Drill, Trap, Gengetone, Amapiano, and Afrobeats."
+      ]
     }
     </script>
 </head>
-<body class="selection:bg-brandNeon selection:text-black">
+<body class="bg-darkBg text-white font-sans antialiased selection:bg-neon selection:text-black">
 
-    <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-card bg-opacity-90 transition-all duration-300 border-b border-white/10">
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#home" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-brandNeon/10 flex items-center justify-center border border-brandNeon/50 group-hover:scale-110 transition-transform">
-                    <i class="fa-solid font-bold fa-compact-disc text-brandNeon text-xl animate-spin" style="animation-duration: 8s;"></i>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-black text-xl tracking-wider text-white group-hover:text-brandNeon transition-colors">
-                        BREZZY <span class="text-brandNeon">ON THE DECKS</span>
-                    </span>
-                    <span class="text-[10px] text-gray-400 tracking-widest font-semibold uppercase">@DJMESSI-z4b</span>
-                </div>
+            <a href="#home" class="flex items-center space-x-2 group">
+                <span class="text-xl sm:text-2xl font-black tracking-widest text-white group-hover:text-neon transition">
+                    BREZZY <span class="text-neon">ON THE DECKS</span>
+                </span>
             </a>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300">
-                <a href="#home" class="hover:text-brandNeon transition-colors">Home</a>
-                <a href="#about" class="hover:text-brandNeon transition-colors">About</a>
-                <a href="#mixes" class="hover:text-brandNeon transition-colors">Latest Mixes</a>
-                <a href="#categories" class="hover:text-brandNeon transition-colors">Genres</a>
-                <a href="#gallery" class="hover:text-brandNeon transition-colors">Gallery</a>
-                <a href="#booking" class="hover:text-brandNeon transition-colors">Bookings</a>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+                <a href="#home" class="hover:text-neon transition">HOME</a>
+                <a href="#about" class="hover:text-neon transition">ABOUT</a>
+                <a href="#featured" class="hover:text-neon transition">FEATURED MIXES</a>
+                <a href="#categories" class="hover:text-neon transition">GENRES</a>
+                <a href="#gallery" class="hover:text-neon transition">GALLERY</a>
+                <a href="#booking" class="hover:text-neon transition">BOOKINGS</a>
+                <a href="#contact" class="hover:text-neon transition">CONTACT</a>
             </nav>
 
-            <!-- YouTube CTA & Mobile Menu Trigger -->
-            <div class="flex items-center gap-4">
-                <a href="https://www.youtube.com/@DJMESSI-z4b?sub_confirmation=1" target="_blank" rel="noopener noreferrer" 
-                   class="hidden sm:inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase px-4 py-2.5 rounded-full transition-all shadow-lg hover:shadow-red-600/30">
-                    <i class="fa-brands fa-youtube text-base"></i> Subscribe
+            <!-- Actions -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://www.youtube.com/@DJMESSI-z4b?sub_confirmation=1" target="_blank" rel="noopener" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-full text-xs flex items-center space-x-2 transition">
+                    <i data-lucide="youtube" class="w-4 h-4"></i>
+                    <span>SUBSCRIBE</span>
                 </a>
-
-                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-brandNeon text-2xl focus:outline-none" aria-label="Toggle Navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                <a href="https://wa.me/254117641510?text=Hello%20Brezzy%20On%20The%20Decks,%20I'd%20like%20to%20book%20a%20DJ%20set!" target="_blank" rel="noopener" class="bg-neon text-black font-bold px-4 py-2 rounded-full text-xs shadow-neon-glow hover:shadow-neon-glow-lg transition">
+                    BOOK NOW
+                </a>
             </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none p-2" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10 px-6 py-6 flex flex-col gap-4 text-center text-lg font-bold">
-            <a href="#home" class="mobile-link text-gray-300 hover:text-brandNeon">Home</a>
-            <a href="#about" class="mobile-link text-gray-300 hover:text-brandNeon">About</a>
-            <a href="#mixes" class="mobile-link text-gray-300 hover:text-brandNeon">Latest Mixes</a>
-            <a href="#categories" class="mobile-link text-gray-300 hover:text-brandNeon">Genres</a>
-            <a href="#gallery" class="mobile-link text-gray-300 hover:text-brandNeon">Gallery</a>
-            <a href="#booking" class="mobile-link text-gray-300 hover:text-brandNeon">Bookings</a>
-            <a href="https://www.youtube.com/@DJMESSI-z4b?sub_confirmation=1" target="_blank" class="bg-red-600 text-white py-3 rounded-lg flex items-center justify-center gap-2 mt-2">
-                <i class="fa-brands fa-youtube"></i> Subscribe on YouTube
-            </a>
+        <div id="mobile-menu" class="hidden md:hidden bg-cardBg border-b border-white/10 px-6 py-6 space-y-4">
+            <a href="#home" class="mobile-link block text-lg font-bold hover:text-neon">HOME</a>
+            <a href="#about" class="mobile-link block text-lg font-bold hover:text-neon">ABOUT</a>
+            <a href="#featured" class="mobile-link block text-lg font-bold hover:text-neon">FEATURED MIXES</a>
+            <a href="#categories" class="mobile-link block text-lg font-bold hover:text-neon">GENRES</a>
+            <a href="#gallery" class="mobile-link block text-lg font-bold hover:text-neon">GALLERY</a>
+            <a href="#booking" class="mobile-link block text-lg font-bold hover:text-neon">BOOKINGS</a>
+            <a href="#contact" class="mobile-link block text-lg font-bold hover:text-neon">CONTACT</a>
+            <div class="pt-4 flex flex-col space-y-3">
+                <a href="https://www.youtube.com/@DJMESSI-z4b?sub_confirmation=1" target="_blank" rel="noopener" class="bg-red-600 text-white text-center font-bold py-3 rounded-xl flex items-center justify-center space-x-2">
+                    <i data-lucide="youtube" class="w-5 h-5"></i>
+                    <span>Subscribe on YouTube</span>
+                </a>
+                <a href="https://wa.me/254117641510?text=Hello%20Brezzy%20On%20The%20Decks,%20I'd%20like%20to%20book%20a%20DJ%20set!" target="_blank" rel="noopener" class="bg-neon text-black text-center font-bold py-3 rounded-xl shadow-neon-glow">
+                    WhatsApp Booking (+254 117 641 510)
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 overflow-hidden">
-        <!-- Ambient Glowing Background Elements -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandNeon/20 rounded-full blur-[120px] bg-pulse pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-80 h-80 bg-brandNeonGlow/15 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div class="max-w-6xl mx-auto text-center relative z-10">
-            <!-- Artist Subtitle Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-brandNeon/30 text-brandNeon text-xs sm:text-sm font-semibold tracking-wider uppercase mb-6 shadow-lg">
-                <span class="w-2 h-2 rounded-full bg-brandNeon animate-ping"></span>
-                DJ Messi | The Record Breaker
-            </div>
-
-            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white mb-6">
-                BREZZY <span class="text-brandNeon neon-glow-text">ON THE DECKS</span>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen pt-28 flex items-center justify-center overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(8,8,8,0.75), rgba(8,8,8,0.98)), url('https://img.youtube.com/vi/TmeQdQIJXew/maxresdefault.jpg');">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center z-10">
+            <span class="inline-block bg-neon/10 text-neon font-mono text-xs uppercase tracking-widest border border-neon/30 px-4 py-1.5 rounded-full mb-6">
+                KARIOBANGI SOUTH • NAIROBI, KENYA
+            </span>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white uppercase mb-6 leading-none">
+                BREZZY <span class="text-neon drop-shadow-[0_0_15px_rgba(0,255,102,0.8)]">ON THE DECKS</span>
             </h1>
-
-            <p class="max-w-2xl mx-auto text-gray-300 text-base sm:text-lg md:text-xl font-normal leading-relaxed mb-10">
-                Bringing you the hottest Kenyan Trap, Drill, Gengetone, Amapiano, and Afrobeats mixes straight from Nairobi to the world.
+            <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                DJ Messi (The Record Breaker). Bringing you the hardest Kenyan Trap, Drill, Gengetone, Gangster Rap, and Afrobeats club sets.
             </p>
-
-            <!-- Action CTA Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-16">
-                <a href="#mixes" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brandNeon hover:bg-emerald-400 text-black font-black uppercase tracking-wider text-sm transition-all transform hover:-translate-y-1 shadow-lg shadow-brandNeon/25 flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-play text-base"></i> Listen to Mixes
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#featured" class="w-full sm:w-auto bg-neon text-black font-extrabold px-8 py-4 rounded-full shadow-neon-glow hover:shadow-neon-glow-lg hover:bg-emerald-400 transition transform hover:-translate-y-0.5">
+                    STREAM LATEST MIXES
                 </a>
-                <a href="#booking" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-white/10 text-white font-bold uppercase tracking-wider text-sm border border-white/20 transition-all flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-calendar-check text-brandNeon"></i> Book DJ Session
+                <a href="https://wa.me/254117641510?text=Hello%20Brezzy%20On%20The%20Decks,%20I'd%20like%20to%20book%20a%20DJ%20set!" target="_blank" rel="noopener" class="w-full sm:w-auto border border-white/20 hover:border-neon text-white font-bold px-8 py-4 rounded-full backdrop-blur-sm hover:text-neon transition">
+                    BOOK FOR EVENTS
                 </a>
             </div>
-
-            <!-- Equalizer Animated Graphic -->
-            <div class="flex items-end justify-center gap-1.5 h-12 max-w-xs mx-auto opacity-70">
-                <div class="w-2 bg-brandNeon rounded-t eq-bar" style="animation-delay: 0.1s;"></div>
-                <div class="w-2 bg-brandNeon rounded-t eq-bar" style="animation-delay: 0.4s;"></div>
-                <div class="w-2 bg-brandNeon rounded-t eq-bar" style="animation-delay: 0.2s;"></div>
-                <div class="w-2 bg-brandNeon rounded-t eq-bar" style="animation-delay: 0.6s;"></div>
-                <div class="w-2 bg-brandNeon rounded-t eq-bar" style="animation-delay: 0.3s;"></div>
-                <div class="w-2 bg-brandNeon rounded-t eq-bar" style="animation-delay: 0.5s;"></div>
-                <div class="w-2 bg-brandNeon rounded-t eq-bar" style="animation-delay: 0.1s;"></div>
-            </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Visual Card / DJ Image -->
-            <div class="relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-brandNeon to-emerald-600 rounded-3xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
-                <div class="relative rounded-2xl overflow-hidden glass-card border border-white/10">
-                    <img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?q=80&w=800&auto=format&fit=crop" 
-                         alt="Brezzy On The Decks DJ Messi performing live" 
-                         class="w-full h-[450px] object-cover object-center transform group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-transparent to-transparent"></div>
-                    <div class="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-xl border border-white/10">
-                        <p class="text-brandNeon font-bold text-sm">DJ Messi / The Record Breaker</p>
-                        <p class="text-gray-300 text-xs mt-1">Nairobi, Kenya • Creator & DJ Specialist</p>
-                    </div>
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-darkBg border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-neon to-emerald-600 rounded-2xl blur opacity-25"></div>
+                    <img src="https://img.youtube.com/vi/TmeQdQIJXew/maxresdefault.jpg" alt="Brezzy On The Decks Virusi Mbaya Vol 2 Banner" class="relative rounded-2xl object-cover w-full h-[400px] shadow-2xl">
                 </div>
-            </div>
-
-            <!-- Biography Content -->
-            <div>
-                <div class="inline-block text-brandNeon font-bold text-xs uppercase tracking-widest mb-3">About The DJ</div>
-                <h2 class="text-3xl sm:text-4xl font-black uppercase text-white mb-6">
-                    Master of the Decks & <span class="text-brandNeon">Kenyan Sound</span>
-                </h2>
-                <div class="space-y-4 text-gray-300 text-base leading-relaxed">
-                    <p>
-                        <strong>BREZZY ON THE DECKS</strong> (known as <em>DJ Messi / The Record Breaker</em>) is a dynamic Kenyan DJ mix creator pushing the boundaries of East African urban music.
+                <div class="space-y-6">
+                    <span class="text-neon font-mono text-xs uppercase tracking-widest">ABOUT THE CREATOR</span>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight">DJ Messi • The Record Breaker</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        Based out of <strong class="text-white">Kariobangi South, Nairobi</strong>, <strong class="text-white">Brezzy On The Decks</strong> (DJ Messi) is a Kenyan DJ and mix creator pushing raw street sounds to national and global recognition.
                     </p>
-                    <p>
-                        Specializing in high-energy blends of Kenyan Trap & Drill, Gengetone, Afrobeats, Amapiano, and R&B, Brezzy brings a distinct hype and seamless mixing style to listeners across Kenya and internationally.
+                    <p class="text-gray-400 leading-relaxed">
+                        Curating top-charting street sets like <em>Virusi Mbaya Vol. 2</em> and <em>THE 254 TAKEOVER</em>, Brezzy On The Decks is built for club nights, radio sets, street shows, and sound setups across Kenya.
                     </p>
-                    <p>
-                        Whether curating high-energy club sessions, viral YouTube mixsets, or hosting special tribute projects like the <em>Best of Virusi Mbaya Vol. 2</em>, Brezzy delivers an unmatched musical experience.
-                    </p>
-                </div>
-
-                <!-- Quick Highlight Pills -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-8">
-                    <div class="glass-card p-4 rounded-xl text-center border border-white/5">
-                        <div class="text-brandNeon font-black text-xl sm:text-2xl">KENYA</div>
-                        <div class="text-gray-400 text-xs mt-1">Based in Nairobi</div>
-                    </div>
-                    <div class="glass-card p-4 rounded-xl text-center border border-white/5">
-                        <div class="text-brandNeon font-black text-xl sm:text-2xl">MIXES</div>
-                        <div class="text-gray-400 text-xs mt-1">Trap, Drill, Gengetone</div>
-                    </div>
-                    <div class="glass-card p-4 rounded-xl text-center border border-white/5 col-span-2 sm:col-span-1">
-                        <div class="text-brandNeon font-black text-xl sm:text-2xl">BOOKINGS</div>
-                        <div class="text-gray-400 text-xs mt-1">Clubs & Events</div>
+                    <div class="pt-2 flex flex-col space-y-2 text-sm text-gray-300 font-mono">
+                        <p><i data-lucide="map-pin" class="inline w-4 h-4 text-neon mr-2"></i> Base: Kariobangi South, Nairobi, Kenya</p>
+                        <p><i data-lucide="phone" class="inline w-4 h-4 text-neon mr-2"></i> Phone / WhatsApp: +254 117 641 510</p>
+                        <p><i data-lucide="mail" class="inline w-4 h-4 text-neon mr-2"></i> Booking Email: oloostephan488@gmail.com</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LATEST MIXES SECTION -->
-    <section id="mixes" class="py-20 px-4 bg-black/40 border-y border-white/5">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <span class="text-brandNeon font-bold text-xs uppercase tracking-widest">YouTube Mix Releases</span>
-                    <h2 class="text-3xl sm:text-4xl font-black uppercase text-white mt-1">Latest <span class="text-brandNeon">DJ Mixsets</span></h2>
-                </div>
-                <a href="https://www.youtube.com/@DJMESSI-z4b" target="_blank" rel="noopener noreferrer" 
-                   class="mt-4 md:mt-0 text-brandNeon hover:text-white font-bold text-sm inline-flex items-center gap-2 transition-colors">
-                    Visit YouTube Channel (@DJMESSI-z4b) <i class="fa-solid fa-arrow-right"></i>
-                </a>
+    <!-- Embedded YouTube Players -->
+    <section id="featured" class="py-24 bg-cardBg border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-neon font-mono text-xs uppercase tracking-widest">SPOTLIGHT PLAYERS</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-2">Featured Mixes</h2>
+                <p class="text-gray-400 mt-2 text-sm">Stream directly on the website or jump to YouTube</p>
             </div>
-
-            <!-- Mix Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Mix Card 1 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-white/10 group flex flex-col">
-                    <div class="relative overflow-hidden aspect-video">
-                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop" 
-                             alt="Best of Virusi Mbaya Vol. 2 Mix Thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all flex items-center justify-center">
-                            <a href="https://www.youtube.com/@DJMESSI-z4b" target="_blank" class="w-14 h-14 rounded-full bg-brandNeon text-black flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-play ml-1"></i>
-                            </a>
-                        </div>
-                        <span class="absolute top-3 left-3 bg-black/80 text-brandNeon text-[10px] font-extrabold px-3 py-1 rounded-full uppercase border border-brandNeon/30">
-                            Kenyan Hip-Hop
-                        </span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold text-white group-hover:text-brandNeon transition-colors mb-2">
-                                Best of Virusi Mbaya Vol. 2
-                            </h3>
-                            <p class="text-gray-400 text-sm mb-4">
-                                The ultimate volume 2 mix compilation paying tribute to Virusi Mbaya with relentless Kenyan hip-hop beats.
-                            </p>
-                        </div>
-                        <a href="https://www.youtube.com/@DJMESSI-z4b" target="_blank" class="w-full py-3 rounded-xl bg-white/5 hover:bg-brandNeon hover:text-black font-bold text-xs uppercase tracking-wider text-center transition-all border border-white/10">
-                            Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Mix Card 2 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-white/10 group flex flex-col">
-                    <div class="relative overflow-hidden aspect-video">
-                        <img src="https://images.unsplash.com/photo-1598387181032-a3103a2db5b3?q=80&w=600&auto=format&fit=crop" 
-                             alt="The 254 Takeover Kenyan Trap and Drill Mix" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all flex items-center justify-center">
-                            <a href="https://www.youtube.com/@DJMESSI-z4b" target="_blank" class="w-14 h-14 rounded-full bg-brandNeon text-black flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-play ml-1"></i>
-                            </a>
-                        </div>
-                        <span class="absolute top-3 left-3 bg-black/80 text-brandNeon text-[10px] font-extrabold px-3 py-1 rounded-full uppercase border border-brandNeon/30">
-                            Trap & Drill
-                        </span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold text-white group-hover:text-brandNeon transition-colors mb-2">
-                                The 254 Takeover (Kenyan Trap & Drill)
-                            </h3>
-                            <p class="text-gray-400 text-sm mb-4">
-                                High-octane blend featuring hard-hitting Kenyan drill anthems and street trap bangers.
-                            </p>
-                        </div>
-                        <a href="https://www.youtube.com/@DJMESSI-z4b" target="_blank" class="w-full py-3 rounded-xl bg-white/5 hover:bg-brandNeon hover:text-black font-bold text-xs uppercase tracking-wider text-center transition-all border border-white/10">
-                            Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Mix Card 3 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-white/10 group flex flex-col">
-                    <div class="relative overflow-hidden aspect-video">
-                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600&auto=format&fit=crop" 
-                             alt="Amapiano and Afrobeats Club Mix" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all flex items-center justify-center">
-                            <a href="https://www.youtube.com/@DJMESSI-z4b" target="_blank" class="w-14 h-14 rounded-full bg-brandNeon text-black flex items-center justify-center text-xl font-bold shadow-lg transform group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-play ml-1"></i>
-                            </a>
-                        </div>
-                        <span class="absolute top-3 left-3 bg-black/80 text-brandNeon text-[10px] font-extrabold px-3 py-1 rounded-full uppercase border border-brandNeon/30">
-                            Amapiano / Afrobeats
-                        </span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold text-white group-hover:text-brandNeon transition-colors mb-2">
-                                Amapiano & Afrobeats Party Mix
-                            </h3>
-                            <p class="text-gray-400 text-sm mb-4">
-                                Premium club grooves featuring smooth log drums, heavy basslines, and top East African jams.
-                            </p>
-                        </div>
-                        <a href="https://www.youtube.com/@DJMESSI-z4b" target="_blank" class="w-full py-3 rounded-xl bg-white/5 hover:bg-brandNeon hover:text-black font-bold text-xs uppercase tracking-wider text-center transition-all border border-white/10">
-                            Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- GENRE CATEGORIES FILTER -->
-    <section id="categories" class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-            <span class="text-brandNeon font-bold text-xs uppercase tracking-widest">Explore By Vibe</span>
-            <h2 class="text-3xl sm:text-4xl font-black uppercase text-white mt-1">Music <span class="text-brandNeon">Categories</span></h2>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            <div class="glass-card p-6 rounded-2xl text-center border border-white/10 hover:border-brandNeon transition-all cursor-pointer group">
-                <i class="fa-solid fa-bolt text-3xl text-brandNeon mb-3 group-hover:scale-110 transition-transform"></i>
-                <h3 class="font-bold text-white text-sm">Kenyan Drill</h3>
-            </div>
-            <div class="glass-card p-6 rounded-2xl text-center border border-white/10 hover:border-brandNeon transition-all cursor-pointer group">
-                <i class="fa-solid fa-fire text-3xl text-brandNeon mb-3 group-hover:scale-110 transition-transform"></i>
-                <h3 class="font-bold text-white text-sm">Gengetone</h3>
-            </div>
-            <div class="glass-card p-6 rounded-2xl text-center border border-white/10 hover:border-brandNeon transition-all cursor-pointer group">
-                <i class="fa-solid fa-drum text-3xl text-brandNeon mb-3 group-hover:scale-110 transition-transform"></i>
-                <h3 class="font-bold text-white text-sm">Amapiano</h3>
-            </div>
-            <div class="glass-card p-6 rounded-2xl text-center border border-white/10 hover:border-brandNeon transition-all cursor-pointer group">
-                <i class="fa-solid fa-music text-3xl text-brandNeon mb-3 group-hover:scale-110 transition-transform"></i>
-                <h3 class="font-bold text-white text-sm">Afrobeats</h3>
-            </div>
-            <div class="glass-card p-6 rounded-2xl text-center border border-white/10 hover:border-brandNeon transition-all cursor-pointer group">
-                <i class="fa-solid fa-microphone text-3xl text-brandNeon mb-3 group-hover:scale-110 transition-transform"></i>
-                <h3 class="font-bold text-white text-sm">Kenyan R&B</h3>
-            </div>
-            <div class="glass-card p-6 rounded-2xl text-center border border-white/10 hover:border-brandNeon transition-all cursor-pointer group">
-                <i class="fa-solid fa-sliders text-3xl text-brandNeon mb-3 group-hover:scale-110 transition-transform"></i>
-                <h3 class="font-bold text-white text-sm">Party Hype</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALLERY SECTION -->
-    <section id="gallery" class="py-20 px-4 bg-black/40 border-t border-white/5">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-                <span class="text-brandNeon font-bold text-xs uppercase tracking-widest">Visual Moments</span>
-                <h2 class="text-3xl sm:text-4xl font-black uppercase text-white mt-1">DJ <span class="text-brandNeon">Gallery</span></h2>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass-card rounded-xl overflow-hidden aspect-square group cursor-pointer border border-white/10" onclick="openModal('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600&auto=format&fit=crop" alt="Live DJ Performance" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="glass-card rounded-xl overflow-hidden aspect-square group cursor-pointer border border-white/10" onclick="openModal('https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?q=80&w=1000&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?q=80&w=600&auto=format&fit=crop" alt="Studio Decks Session" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="glass-card rounded-xl overflow-hidden aspect-square group cursor-pointer border border-white/10" onclick="openModal('https://images.unsplash.com/photo-1598387181032-a3103a2db5b3?q=80&w=1000&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1598387181032-a3103a2db5b3?q=80&w=600&auto=format&fit=crop" alt="Mix Recording Studio" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LIGHTBOX MODAL -->
-    <div id="image-modal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
-        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-brandNeon">&times;</button>
-        <img id="modal-img" src="" alt="Enlarged view" class="max-w-full max-h-[85vh] rounded-lg border border-white/20">
-    </div>
-
-    <!-- BOOKINGS & CONTACT SECTION -->
-    <section id="booking" class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-                <span class="text-brandNeon font-bold text-xs uppercase tracking-widest">Inquiries & Events</span>
-                <h2 class="text-3xl sm:text-4xl font-black uppercase text-white mt-1 mb-6">
-                    Book <span class="text-brandNeon">Brezzy On The Decks</span>
-                </h2>
-                <p class="text-gray-300 mb-8 leading-relaxed">
-                    Available for club gigs, private parties, corporate events, brand collaborations, and sponsored mixsets across Kenya and beyond.
-                </p>
-
-                <!-- Quick Contact Direct Cards -->
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Video 1 -->
                 <div class="space-y-4">
-                    <a href="https://wa.me/254700000000?text=Hi%20Brezzy%20On%20The%20Decks,%20I'd%20like%20to%20book%20a%20DJ%20session." 
-                       target="_blank" 
-                       class="flex items-center gap-4 p-4 glass-card rounded-2xl border border-white/10 hover:border-emerald-500 transition-all group">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <div class="text-white font-bold">Instant WhatsApp Chat</div>
-                            <div class="text-gray-400 text-xs">Direct booking inquiry (+254 700 000 000)</div>
-                        </div>
-                    </a>
-
-                    <a href="https://www.youtube.com/@DJMESSI-z4b" target="_blank" class="flex items-center gap-4 p-4 glass-card rounded-2xl border border-white/10 hover:border-red-500 transition-all group">
-                        <div class="w-12 h-12 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                            <i class="fa-brands fa-youtube"></i>
-                        </div>
-                        <div>
-                            <div class="text-white font-bold">Official YouTube Channel</div>
-                            <div class="text-gray-400 text-xs">@DJMESSI-z4b</div>
-                        </div>
-                    </a>
+                    <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-neon/30 shadow-neon-glow">
+                        <iframe 
+                            class="w-full h-full"
+                            src="https://www.youtube-nocookie.com/embed/TmeQdQIJXew?autoplay=0&rel=0" 
+                            title="Virusi Mbaya Vol. 2 – DJ Messi’s Hardest Trap Mix Yet" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div>
+                        <span class="text-neon text-xs font-mono">254 TRAP & DRILL</span>
+                        <h3 class="text-xl font-bold text-white mt-1">Virusi Mbaya Vol. 2 – DJ Messi’s Hardest Trap Mix Yet</h3>
+                        <a href="https://www.youtube.com/watch?v=TmeQdQIJXew" target="_blank" rel="noopener" class="inline-flex items-center space-x-2 text-red-500 hover:text-red-400 font-bold text-xs mt-3 transition">
+                            <i data-lucide="youtube" class="w-4 h-4"></i>
+                            <span>Watch on YouTube</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Booking Form -->
-            <div class="glass-card p-8 rounded-3xl border border-white/10">
-                <form id="booking-form" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Your Name</label>
-                        <input type="text" required placeholder="Enter your full name" 
-                               class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandNeon transition-colors">
+                <!-- Video 2 -->
+                <div class="space-y-4">
+                    <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-neon/30 shadow-neon-glow">
+                        <iframe 
+                            class="w-full h-full"
+                            src="https://www.youtube-nocookie.com/embed/5BlxBFT3Shw?autoplay=0&rel=0" 
+                            title="THE 254 TAKEOVER: Exclusive Kenyan Gangster Rap & Dancehall" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Email Address</label>
-                        <input type="email" required placeholder="name@example.com" 
-                               class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandNeon transition-colors">
+                        <span class="text-neon text-xs font-mono">GANGSTER RAP & DANCEHALL</span>
+                        <h3 class="text-xl font-bold text-white mt-1">THE 254 TAKEOVER: Exclusive Kenyan Gangster Rap & Dancehall</h3>
+                        <a href="https://www.youtube.com/watch?v=5BlxBFT3Shw" target="_blank" rel="noopener" class="inline-flex items-center space-x-2 text-red-500 hover:text-red-400 font-bold text-xs mt-3 transition">
+                            <i data-lucide="youtube" class="w-4 h-4"></i>
+                            <span>Watch on YouTube</span>
+                        </a>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Event Type & Date</label>
-                        <input type="text" placeholder="Club Gig / Party / Date" 
-                               class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandNeon transition-colors">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Event Details & Budget</label>
-                        <textarea rows="4" placeholder="Tell us about your event, location, and requirements..." 
-                                  class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandNeon transition-colors"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-4 rounded-xl bg-brandNeon hover:bg-emerald-400 text-black font-black uppercase tracking-wider text-sm transition-all shadow-lg shadow-brandNeon/20">
-                        Submit Booking Request
-                    </button>
-                    <div id="form-status" class="hidden text-center text-sm font-semibold text-brandNeon mt-2">
-                        Message sent successfully! We will get back to you shortly.
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="glass-card border-t border-white/10 py-12 px-4 text-center">
-        <div class="max-w-7xl mx-auto flex flex-col items-center justify-between gap-6">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-compact-disc text-brandNeon text-2xl"></i>
-                <span class="font-black text-xl tracking-wider text-white">BREZZY <span class="text-brandNeon">ON THE DECKS</span></span>
+    <!-- Music Categories -->
+    <section id="categories" class="py-24 bg-darkBg border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-neon font-mono text-xs uppercase tracking-widest">EXPLORE BY GENRE</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-2">Sound Categories</h2>
             </div>
-
-            <div class="flex items-center gap-6 text-xl">
-                <a href="https://www.youtube.com/@DJMESSI-z4b" target="_blank" class="text-gray-400 hover:text-red-500 transition-colors" aria-label="YouTube Channel">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://wa.me/254700000000" target="_blank" class="text-gray-400 hover:text-emerald-400 transition-colors" aria-label="WhatsApp Contact">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                <div class="p-6 rounded-2xl bg-cardBg border border-white/5 hover:border-neon/40 transition">
+                    <div class="text-neon mb-3"><i data-lucide="disc" class="w-8 h-8"></i></div>
+                    <h3 class="text-lg font-bold text-white">Kenyan Trap & Drill</h3>
+                    <p class="text-gray-400 text-xs mt-1">Underground beats, heavy bass, street lyrics.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-cardBg border border-white/5 hover:border-neon/40 transition">
+                    <div class="text-neon mb-3"><i data-lucide="music-2" class="w-8 h-8"></i></div>
+                    <h3 class="text-lg font-bold text-white">Gengetone Hits</h3>
+                    <p class="text-gray-400 text-xs mt-1">High-energy club bangers from Nairobi's finest.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-cardBg border border-white/5 hover:border-neon/40 transition">
+                    <div class="text-neon mb-3"><i data-lucide="flame" class="w-8 h-8"></i></div>
+                    <h3 class="text-lg font-bold text-white">Gangster Rap & Dancehall</h3>
+                    <p class="text-gray-400 text-xs mt-1">Street riddims, heavy basslines, club energy.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-cardBg border border-white/5 hover:border-neon/40 transition">
+                    <div class="text-neon mb-3"><i data-lucide="radio" class="w-8 h-8"></i></div>
+                    <h3 class="text-lg font-bold text-white">Amapiano & Afrobeats</h3>
+                    <p class="text-gray-400 text-xs mt-1">Smooth logs, infectious grooves, continental hits.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-cardBg border border-white/5 hover:border-neon/40 transition">
+                    <div class="text-neon mb-3"><i data-lucide="headphones" class="w-8 h-8"></i></div>
+                    <h3 class="text-lg font-bold text-white">Kenyan R&B</h3>
+                    <p class="text-gray-400 text-xs mt-1">Chill, soulful urban tunes for late-night listening.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-cardBg border border-white/5 hover:border-neon/40 transition">
+                    <div class="text-neon mb-3"><i data-lucide="zap" class="w-8 h-8"></i></div>
+                    <h3 class="text-lg font-bold text-white">Party Hype Mixes</h3>
+                    <p class="text-gray-400 text-xs mt-1">Non-stop party starters designed for clubs & events.</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <p class="text-gray-500 text-xs tracking-wider">
-                &copy; <span id="year"></span> BREZZY ON THE DECKS (@DJMESSI-z4b). All Rights Reserved. Built for Kenya & World.
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-cardBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-neon font-mono text-xs uppercase tracking-widest">VISUAL VIBES</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-2">Gallery</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop" alt="DJ Decks Light Show" class="rounded-2xl object-cover h-64 w-full border border-white/10 hover:border-neon/50 transition">
+                <img src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?q=80&w=800&auto=format&fit=crop" alt="DJ Mixer Close-up" class="rounded-2xl object-cover h-64 w-full border border-white/10 hover:border-neon/50 transition">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop" alt="Club Party Crowd" class="rounded-2xl object-cover h-64 w-full border border-white/10 hover:border-neon/50 transition">
+            </div>
+        </div>
+    </section>
+
+    <!-- Bookings Section -->
+    <section id="booking" class="py-24 bg-darkBg border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-neon font-mono text-xs uppercase tracking-widest">WORK WITH ME</span>
+            <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-2">Book Brezzy On The Decks</h2>
+            <p class="text-gray-400 mt-4 max-w-xl mx-auto text-sm">
+                Available for club gigs, private parties, festival stages, radio sets, and brand promotions across Nairobi and nationwide.
             </p>
+
+            <div class="mt-10 grid sm:grid-cols-2 gap-6 text-left">
+                <div class="p-8 rounded-2xl bg-cardBg border border-white/10 hover:border-neon/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-neon flex items-center justify-center mb-4">
+                            <i data-lucide="message-square" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Direct WhatsApp</h3>
+                        <p class="text-gray-400 text-xs mt-2">Fastest way to lock dates, discuss rates, and negotiate event bookings.</p>
+                    </div>
+                    <a href="https://wa.me/254117641510?text=Hello%20Brezzy%20On%20The%20Decks,%20I'd%20like%20to%20book%20a%20DJ%20set!" target="_blank" rel="noopener" class="mt-6 inline-block text-center bg-neon text-black font-extrabold py-3.5 rounded-xl shadow-neon-glow hover:bg-emerald-400 transition">
+                        CHAT ON WHATSAPP
+                    </a>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-cardBg border border-white/10 hover:border-neon/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center mb-4">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Official Email</h3>
+                        <p class="text-gray-400 text-xs mt-2">For formal event proposals, sponsorship decks, and media inquiries.</p>
+                    </div>
+                    <a href="mailto:oloostephan488@gmail.com?subject=Booking%20Inquiry%20-%20Brezzy%20On%20The%20Decks" class="mt-6 inline-block text-center border border-white/20 hover:border-neon text-white font-bold py-3.5 rounded-xl hover:text-neon transition">
+                        SEND EMAIL
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-black border-t border-white/10 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <span class="text-xl font-black text-white tracking-widest">
+                        BREZZY <span class="text-neon">ON THE DECKS</span>
+                    </span>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Premier Kenyan DJ & Mix Creator. Delivering 254 Trap, Drill, Gengetone, Afrobeats, and Amapiano energy straight from Kariobangi South, Nairobi.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono text-neon uppercase tracking-widest mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-white transition">About DJ Messi</a></li>
+                        <li><a href="#featured" class="hover:text-white transition">Featured Mixes</a></li>
+                        <li><a href="#booking" class="hover:text-white transition">Bookings</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono text-neon uppercase tracking-widest mb-4">Contact</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li>Kariobangi South, Nairobi, Kenya</li>
+                        <li>WhatsApp: +254 117 641 510</li>
+                        <li>Email: oloostephan488@gmail.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono text-neon uppercase tracking-widest mb-4">Follow Channel</h4>
+                    <a href="https://www.youtube.com/@DJMESSI-z4b" target="_blank" rel="noopener" class="inline-flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-full text-xs transition">
+                        <i data-lucide="youtube" class="w-4 h-4"></i>
+                        <span>@DJMESSI-z4b</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; 2026 BREZZY ON THE DECKS. All rights reserved.</p>
+                <a href="#home" class="mt-4 sm:mt-0 text-neon hover:underline">Back to top ↑</a>
+            </div>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- JavaScript -->
+    <script src="script.js"></script>
     <script>
-        // Set dynamic copyright year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Gallery Lightbox Modal
-        function openModal(imgSrc) {
-            document.getElementById('modal-img').src = imgSrc;
-            document.getElementById('image-modal').classList.remove('hidden');
-            document.getElementById('image-modal').classList.add('flex');
-        }
-        function closeModal() {
-            document.getElementById('image-modal').classList.add('hidden');
-            document.getElementById('image-modal').classList.remove('flex');
-        }
-
-        // Handle Booking Form Submission
-        document.getElementById('booking-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const status = document.getElementById('form-status');
-            status.classList.remove('hidden');
-            this.reset();
-            setTimeout(() => {
-                status.classList.add('hidden');
-            }, 5000);
-        });
+        lucide.createIcons();
     </script>
 </body>
 </html>
