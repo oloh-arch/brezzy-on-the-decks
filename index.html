@@ -1,583 +1,1217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brezzy On The Decks | DJ Messi | The Record Breaker</title>
-  <meta name="description" content="Official website of Brezzy On The Decks (DJ Messi / The Record Breaker). Stream Gengetone, Kenyan Drill, Trap & Afrobeats mixes. Bookings & Gigs.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0c10;
-      --card-bg: #12161f;
-      --accent: #00ff66;
-      --accent-glow: rgba(0, 255, 102, 0.35);
-      --text: #e2e8f0;
-      --muted: #8b949e;
-      --border: #21262d;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brezzy On The Decks | DJ Messi | The Record Breaker</title>
+    <meta name="description" content="Official platform for DJ Messi (Brezzy On The Decks) - Nairobi, Kenya. Featuring live YouTube sets, Audiomack downloads, DJ soundboard, fan poll, and booking portal.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#00ff66',
+                            dark: '#0a0c10',
+                            card: '#12161f',
+                            hover: '#00cc52',
+                            accent: '#1a202c',
+                            border: '#1f2937'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0c10;
+            color: #f3f4f6;
+        }
+        
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      padding-bottom: 90px;
-    }
+        .neon-border {
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+            border: 1px solid rgba(0, 255, 102, 0.3);
+        }
+        
+        .neon-glow-btn {
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.35);
+            transition: all 0.3s ease;
+        }
+        
+        .neon-glow-btn:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.7);
+            transform: translateY(-2px);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 12px rgba(0, 255, 102, 0.6);
+        }
 
-    h1, h2, h3, .brand {
-      font-family: 'Orbitron', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+        /* Animated Audio Equalizer Bars */
+        .eq-bar {
+            animation: bounce 1.2s ease-in-out infinite alternate;
+        }
+        @keyframes bounce {
+            0% { height: 4px; }
+            100% { height: 26px; }
+        }
+        .eq-1 { animation-delay: 0.1s; }
+        .eq-2 { animation-delay: 0.3s; }
+        .eq-3 { animation-delay: 0.2s; }
+        .eq-4 { animation-delay: 0.4s; }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* NAV */
-    nav {
-      background: rgba(10, 12, 16, 0.9);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 70px;
-    }
-    .brand {
-      font-size: 1.3rem;
-      font-weight: 900;
-      color: #fff;
-    }
-    .brand span {
-      color: var(--accent);
-    }
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-      align-items: center;
-    }
-    .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-    .btn-action {
-      background: var(--accent);
-      color: #000;
-      padding: 8px 18px;
-      border-radius: 6px;
-      font-weight: 700;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.8rem;
-      box-shadow: 0 0 15px var(--accent-glow);
-      transition: all 0.2s;
-    }
-    .btn-action:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px var(--accent-glow);
-    }
-
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 80px 20px 50px;
-      background: radial-gradient(circle at top, rgba(0,255,102,0.1) 0%, rgba(10,12,16,1) 70%);
-    }
-    .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-    .hero p {
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 25px;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-secondary {
-      background: transparent;
-      color: #fff;
-      border: 1px solid var(--border);
-      padding: 8px 18px;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* SECTION TITLE */
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 40px 0 20px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 10px;
-    }
-    .section-title h2 {
-      font-size: 1.4rem;
-      color: #fff;
-    }
-
-    /* STREAM SWITCHER TABS */
-    .tab-buttons {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 25px;
-    }
-    .tab-btn {
-      padding: 10px 20px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--text);
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .tab-btn.active {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(0, 255, 102, 0.05);
-    }
-
-    /* PLAYER & MIXES GRID */
-    .mixes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-    }
-    .mix-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    .mix-card-video {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 */
-      background: #000;
-    }
-    .mix-card-video iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .mix-card-body {
-      padding: 15px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .mix-title {
-      font-weight: 700;
-      font-size: 1rem;
-      color: #fff;
-      margin-bottom: 5px;
-    }
-    .mix-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 15px;
-    }
-    .mix-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    /* AUDIOMACK EMBED GRID */
-    .audiomack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-    }
-    .audiomack-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px;
-    }
-    .audiomack-card iframe {
-      width: 100%;
-      height: 252px;
-      border: none;
-      border-radius: 8px;
-    }
-
-    /* GIGS & EVENTS */
-    .event-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 15px;
-      border-radius: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-    .event-date {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-    .event-info h4 {
-      color: #fff;
-      font-size: 1rem;
-    }
-    .event-info p {
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    /* MODAL */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(8px);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .modal-content {
-      background: var(--card-bg);
-      border: 1px solid var(--accent);
-      padding: 25px;
-      border-radius: 12px;
-      max-width: 450px;
-      width: 100%;
-      position: relative;
-      box-shadow: 0 0 30px var(--accent-glow);
-    }
-    .modal-close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      color: var(--muted);
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-    .mpesa-box {
-      background: #000;
-      border: 1px dashed var(--accent);
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-      margin: 15px 0;
-    }
-    .mpesa-number {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.4rem;
-      color: var(--accent);
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin: 8px 0;
-    }
-
-    /* CMS PANEL */
-    .admin-form label {
-      display: block;
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 10px;
-    }
-    .admin-form input, .admin-form select {
-      width: 100%;
-      padding: 10px;
-      background: #000;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: #fff;
-      margin-top: 4px;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2rem; }
-      .nav-links { display: none; }
-      .event-card { flex-direction: column; align-items: flex-start; gap: 10px; }
-    }
-  </style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0c10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ff66;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-brand-dark text-gray-100 antialiased pb-28">
 
-  <!-- NAV -->
-  <nav>
-    <div class="container nav-inner">
-      <div class="brand">BREZZY <span>ON THE DECKS</span></div>
-      <ul class="nav-links">
-        <li><a href="#mixes">Mixes</a></li>
-        <li><a href="#audiomack">Audiomack</a></li>
-        <li><a href="#events">Gigs</a></li>
-        <li><a href="#epk">EPK</a></li>
-      </ul>
-      <div style="display: flex; gap: 10px;">
-        <button class="btn-secondary" onclick="openModal('cmsModal')"><i class="fa-solid fa-gear"></i> CMS</button>
-        <button class="btn-action" onclick="openModal('tipModal')"><i class="fa-solid fa-mobile-screen"></i> Tip M-Pesa</button>
-      </div>
+    <!-- FLOATING WHATSAPP QUICK BOOK BUTTON -->
+    <a href="https://wa.me/254117641510?text=Hi%20DJ%20Messi,%20I'd%20like%20to%20inquire%20about%20booking%20you%20for%20an%20event." 
+       target="_blank" 
+       title="Quick WhatsApp Booking"
+       class="fixed bottom-24 left-5 z-40 bg-emerald-500 hover:bg-emerald-400 text-black font-black p-4 rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110 neon-glow-btn">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- TOP NAVIGATION BAR -->
+    <nav class="fixed top-0 left-0 w-full z-40 bg-brand-dark/95 backdrop-blur-md border-b border-gray-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center font-black text-black text-xl font-orbitron group-hover:scale-105 transition-transform">
+                    B
+                </div>
+                <div>
+                    <span class="font-black text-lg sm:text-xl tracking-wider text-white block leading-none font-orbitron">BREZZY <span class="text-brand-green">ON THE DECKS</span></span>
+                    <span class="text-[10px] text-gray-400 tracking-widest uppercase block mt-0.5">DJ MESSI • THE RECORD BREAKER</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-6 font-semibold text-xs tracking-wider uppercase">
+                <a href="#mixes" class="hover:text-brand-green transition-colors">Mixes</a>
+                <a href="#soundboard" class="hover:text-brand-green transition-colors">Soundboard</a>
+                <a href="#poll" class="hover:text-brand-green transition-colors">Fan Poll</a>
+                <a href="#wall" class="hover:text-brand-green transition-colors">Wall of Heat</a>
+                <a href="#gigs" class="hover:text-brand-green transition-colors">Gigs</a>
+                <a href="#epk" class="hover:text-brand-green transition-colors">EPK</a>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex items-center gap-2">
+                <button onclick="toggleAdminPanel()" class="bg-brand-card hover:bg-gray-800 text-brand-green border border-brand-green/40 font-bold px-3 py-2 rounded-full text-xs flex items-center gap-1.5 transition-all">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span class="hidden sm:inline">CMS Panel</span>
+                </button>
+                <button onclick="openModal('mpesaModal')" class="bg-brand-green text-black font-extrabold px-4 py-2 rounded-full text-xs flex items-center gap-1.5 neon-glow-btn">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <span>Tip DJ</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ADMIN PANEL OVERLAY (CMS CONTROLLER) -->
+    <div id="adminPanel" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-xl overflow-y-auto p-4 sm:p-8">
+        <div class="max-w-4xl mx-auto bg-brand-card border border-brand-green/50 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex items-center justify-between pb-6 border-b border-gray-800 mb-6">
+                <div>
+                    <h2 class="text-2xl font-black text-white flex items-center gap-2 font-orbitron">
+                        <i class="fa-solid fa-sliders text-brand-green"></i> DJ Messi CMS Control Panel
+                    </h2>
+                    <p class="text-xs text-gray-400 mt-1">Add new mix cards dynamically to your live grid.</p>
+                </div>
+                <button onclick="toggleAdminPanel()" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Add New Mix Form -->
+                <div class="bg-brand-dark p-5 rounded-2xl border border-gray-800">
+                    <h3 class="text-base font-bold text-brand-green mb-4 flex items-center gap-2 uppercase tracking-wide">
+                        <i class="fa-solid fa-plus-circle"></i> Add New Mix Card
+                    </h3>
+                    <form id="addMixForm" onsubmit="saveNewMix(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <label class="block text-gray-400 mb-1">Mix Title</label>
+                            <input type="text" id="mixTitle" placeholder="e.g. Virusi Mbaya Vol. 3" required class="w-full bg-brand-card border border-gray-700 rounded-lg p-2.5 text-white focus:border-brand-green outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 mb-1">YouTube Video ID</label>
+                            <input type="text" id="mixYtId" placeholder="e.g. TmeQdQIJXew" required class="w-full bg-brand-card border border-gray-700 rounded-lg p-2.5 text-white focus:border-brand-green outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 mb-1">Genre Category</label>
+                            <select id="mixGenre" required class="w-full bg-brand-card border border-gray-700 rounded-lg p-2.5 text-white focus:border-brand-green outline-none">
+                                <option value="Gengetone">Gengetone</option>
+                                <option value="Drill">Drill</option>
+                                <option value="Trap">Trap</option>
+                                <option value="Amapiano">Amapiano</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 mb-1">Custom Description</label>
+                            <input type="text" id="mixDesc" placeholder="Short description..." required class="w-full bg-brand-card border border-gray-700 rounded-lg p-2.5 text-white focus:border-brand-green outline-none">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <button type="submit" class="w-full bg-brand-green text-black font-extrabold py-3 rounded-lg hover:bg-brand-hover transition-colors font-orbitron">
+                                PUBLISH MIX CARD TO LIVE GRID
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-800 text-xs">
+                    <button onclick="resetCMSData()" class="text-red-400 hover:text-red-300 flex items-center gap-1">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Dynamic Data
+                    </button>
+                    <button onclick="toggleAdminPanel()" class="bg-gray-800 text-white font-bold px-6 py-2 rounded-lg">
+                        Close CMS
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>DJ MESSI // THE RECORD BREAKER</h1>
-      <p>Official HQ for Gengetone, Kenyan Drill, Trap & Street Heat.</p>
-      <div class="hero-buttons">
-        <a href="#mixes" class="btn-action"><i class="fa-solid fa-play"></i> Listen Now</a>
-        <a href="https://wa.me/254117641510?text=I%20want%20to%20book%20DJ%20Messi%20for%20an%20event" target="_blank" class="btn-secondary"><i class="fa-brands fa-whatsapp"></i> Book DJ Messi</a>
-      </div>
-    </div>
-  </section>
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-[80vh] flex flex-col justify-center">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-brand-green/10 blur-[130px] rounded-full pointer-events-none"></div>
 
-  <!-- MIXES SECTION -->
-  <section class="container" id="mixes">
-    <div class="section-title">
-      <h2><i class="fa-solid fa-compact-disc" style="color:var(--accent);"></i> Stream Official Mixes</h2>
-    </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-card border border-brand-green/30 text-brand-green text-xs font-semibold tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span>
+                    Nairobi, Kenya 🇰🇪 • 0117 641 510
+                </div>
 
-    <div class="tab-buttons">
-      <button class="tab-btn active" onclick="switchTab('youtubeTab')"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i> YouTube Videos</button>
-      <button class="tab-btn" onclick="switchTab('audiomackTab')"><i class="fa-solid fa-music" style="color:var(--accent);"></i> Audiomack Audio Streams</button>
-    </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none font-orbitron">
+                    DJ MESSI <br>
+                    <span class="text-brand-green neon-text">// THE RECORD BREAKER</span>
+                </h1>
 
-    <!-- YOUTUBE TAB CONTENT -->
-    <div id="youtubeTab" class="tab-content">
-      <div class="mixes-grid" id="youtubeGrid">
-        
-        <!-- Virusi Mbaya Vol. 2 -->
-        <div class="mix-card">
-          <div class="mix-card-video">
-            <iframe src="https://www.youtube.com/embed/TmeQdQIJXew" title="VIRUSI MBAYA VOL 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <div class="mix-card-body">
+                <p class="text-base sm:text-lg text-gray-300 font-normal max-w-2xl mx-auto lg:mx-0">
+                    Official street mix portal for <strong class="text-white">Brezzy On The Decks</strong>. Delivering high-octane Gengetone, 254 Drill, Trap, and Amapiano live sets.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#mixes" class="bg-brand-green text-black font-extrabold px-8 py-4 rounded-full text-sm flex items-center gap-3 neon-glow-btn font-orbitron">
+                        <i class="fa-solid fa-play text-base"></i>
+                        <span>STREAM MIXES</span>
+                    </a>
+                    <button onclick="openModal('bookingModal')" class="bg-brand-card hover:bg-brand-accent border border-gray-700 text-white font-bold px-6 py-4 rounded-full text-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-brand-green"></i>
+                        <span>BOOK DJ MESSI</span>
+                    </button>
+                    <button onclick="openModal('requestModal')" class="bg-brand-card hover:bg-brand-accent border border-gray-700 text-white font-bold px-6 py-4 rounded-full text-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-brand-green"></i>
+                        <span>REQUEST TRACK</span>
+                    </button>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="pt-8 border-t border-gray-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 font-orbitron">
+                    <div class="text-center lg:text-left">
+                        <span class="block text-2xl font-black text-brand-green">254</span>
+                        <span class="text-[10px] text-gray-400 font-sans tracking-wider uppercase">Street Anthem Base</span>
+                    </div>
+                    <div class="text-center lg:text-left">
+                        <span class="block text-2xl font-black text-white">100%</span>
+                        <span class="text-[10px] text-gray-400 font-sans tracking-wider uppercase">Live Deck Energy</span>
+                    </div>
+                    <div class="text-center lg:text-left">
+                        <span class="block text-2xl font-black text-brand-green">24/7</span>
+                        <span class="text-[10px] text-gray-400 font-sans tracking-wider uppercase">Direct Hotline</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Featured Mix Card -->
+            <div class="lg:col-span-5">
+                <div class="bg-brand-card rounded-3xl p-6 neon-border relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold text-black bg-brand-green px-3 py-1 rounded-full uppercase tracking-wider font-orbitron">Featured Drop</span>
+                        <span class="text-xs text-gray-400"><i class="fa-brands fa-youtube text-red-500 mr-1"></i> Official Video</span>
+                    </div>
+
+                    <div class="relative rounded-2xl overflow-hidden bg-black aspect-video mb-4">
+                        <iframe id="heroIframe" class="w-full h-full" src="https://www.youtube.com/embed/TmeQdQIJXew" title="Virusi Mbaya Vol. 2" allowfullscreen></iframe>
+                    </div>
+
+                    <h3 id="heroTitle" class="text-xl font-bold text-white mb-1 font-orbitron">Virusi Mbaya Vol. 2</h3>
+                    <p id="heroDesc" class="text-xs text-gray-400 mb-4">Heavyweight Gengetone and Drill bangers mixed live by DJ Messi.</p>
+
+                    <div class="flex items-center justify-between pt-3 border-t border-gray-800">
+                        <button onclick="playOnSticky('Virusi Mbaya Vol. 2', 'TmeQdQIJXew')" class="text-brand-green text-xs font-bold flex items-center gap-1.5 hover:underline">
+                            <i class="fa-solid fa-circle-play text-base"></i> Sync to Sticky Deck
+                        </button>
+                        <a id="heroYtLink" href="https://youtube.com/watch?v=TmeQdQIJXew" target="_blank" class="text-xs text-gray-400 hover:text-white flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE DJ SOUNDBOARD SECTION -->
+    <section id="soundboard" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="bg-brand-card rounded-3xl p-6 sm:p-8 border border-gray-800">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4 border-b border-gray-800 pb-4">
+                <div>
+                    <span class="text-xs font-bold text-brand-green uppercase tracking-widest font-orbitron">Synthesizer FX</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white uppercase font-orbitron mt-1">
+                        🔊 DJ Messi <span class="text-brand-green">Soundboard</span>
+                    </h2>
+                </div>
+                <p class="text-xs text-gray-400 max-w-sm">Tap sound pads to trigger real-time synthesized DJ drops & sound effects generated via Web Audio API.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                <button onclick="playSFX('airhorn')" class="bg-brand-dark hover:bg-brand-accent border border-gray-700 hover:border-brand-green p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group transition-all">
+                    <span class="text-2xl group-hover:scale-125 transition-transform">📢</span>
+                    <span class="text-xs font-bold text-white font-orbitron">Airhorn Drop</span>
+                </button>
+                <button onclick="playSFX('scratch')" class="bg-brand-dark hover:bg-brand-accent border border-gray-700 hover:border-brand-green p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group transition-all">
+                    <span class="text-2xl group-hover:scale-125 transition-transform">💿</span>
+                    <span class="text-xs font-bold text-white font-orbitron">Wheel Scratch</span>
+                </button>
+                <button onclick="playSFX('laser')" class="bg-brand-dark hover:bg-brand-accent border border-gray-700 hover:border-brand-green p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group transition-all">
+                    <span class="text-2xl group-hover:scale-125 transition-transform">⚡</span>
+                    <span class="text-xs font-bold text-white font-orbitron">Laser Shot</span>
+                </button>
+                <button onclick="playSFX('tag')" class="bg-brand-dark hover:bg-brand-accent border border-gray-700 hover:border-brand-green p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group transition-all">
+                    <span class="text-2xl group-hover:scale-125 transition-transform">🎤</span>
+                    <span class="text-xs font-bold text-brand-green font-orbitron">Voice Tag</span>
+                </button>
+                <button onclick="playSFX('bass')" class="bg-brand-dark hover:bg-brand-accent border border-gray-700 hover:border-brand-green p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group transition-all col-span-2 sm:col-span-1">
+                    <span class="text-2xl group-hover:scale-125 transition-transform">💥</span>
+                    <span class="text-xs font-bold text-white font-orbitron">Bass Drop</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- DUAL MEDIA TABS & MIX FILTERING -->
+    <section id="mixes" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+            <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight font-orbitron">
+                Stream & Download <span class="text-brand-green">Sets</span>
+            </h2>
+            <p class="text-gray-400 text-xs sm:text-sm mt-2">Filter by genre, vote up your favorites, or switch to Audiomack for instant audio streaming.</p>
+
+            <!-- Switch Tabs -->
+            <div class="flex justify-center gap-2 mt-6 p-1 bg-brand-card rounded-full w-fit mx-auto border border-gray-800">
+                <button onclick="switchTab('youtube')" id="tab-youtube" class="px-5 py-2 rounded-full text-xs font-bold bg-brand-green text-black transition-all font-orbitron">
+                    <i class="fa-brands fa-youtube mr-1"></i> YouTube Video Sets
+                </button>
+                <button onclick="switchTab('audiomack')" id="tab-audiomack" class="px-5 py-2 rounded-full text-xs font-bold text-gray-400 hover:text-white transition-all font-orbitron">
+                    <i class="fa-solid fa-music mr-1"></i> Audiomack Audio Stream
+                </button>
+            </div>
+        </div>
+
+        <!-- YouTube Content Block -->
+        <div id="content-youtube">
+            <!-- Genre Filter Chips -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-8">
+                <button onclick="filterGenre('All')" class="genre-chip active px-4 py-1.5 rounded-full text-xs font-bold bg-brand-green text-black border border-brand-green transition-all">All</button>
+                <button onclick="filterGenre('Gengetone')" class="genre-chip px-4 py-1.5 rounded-full text-xs font-bold bg-brand-card text-gray-300 border border-gray-800 hover:border-brand-green transition-all">Gengetone</button>
+                <button onclick="filterGenre('Drill')" class="genre-chip px-4 py-1.5 rounded-full text-xs font-bold bg-brand-card text-gray-300 border border-gray-800 hover:border-brand-green transition-all">Drill</button>
+                <button onclick="filterGenre('Trap')" class="genre-chip px-4 py-1.5 rounded-full text-xs font-bold bg-brand-card text-gray-300 border border-gray-800 hover:border-brand-green transition-all">Trap</button>
+                <button onclick="filterGenre('Amapiano')" class="genre-chip px-4 py-1.5 rounded-full text-xs font-bold bg-brand-card text-gray-300 border border-gray-800 hover:border-brand-green transition-all">Amapiano</button>
+            </div>
+
+            <!-- YouTube Video Grid -->
+            <div id="youtubeGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </div>
+
+        <!-- Audiomack Audio Embeds Tab -->
+        <div id="content-audiomack" class="hidden space-y-6 max-w-4xl mx-auto">
+            <div class="bg-brand-card rounded-3xl p-6 border border-gray-800 space-y-4">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-800 pb-3">
+                    <div>
+                        <span class="text-xs font-bold text-orange-400 uppercase tracking-widest font-orbitron">Kenyan Drill / Trap Mix</span>
+                        <h3 class="text-lg font-bold text-white">Best of Eastlando Vol. 1</h3>
+                    </div>
+                    <a href="https://audiomack.com/oloostephan488/song/best-of-eastlando-vol-1-ghetto-champs-kenyan-drill-trap-mix" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-black font-extrabold px-4 py-2 rounded-full text-xs flex items-center gap-1.5 font-orbitron transition-all">
+                        <i class="fa-solid fa-download"></i> Download Track
+                    </a>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-brand-dark">
+                    <iframe src="https://audiomack.com/embed/oloostephan488/song/best-of-eastlando-vol-1-ghetto-champs-kenyan-drill-trap-mix?background=1" scrolling="no" width="100%" height="252" frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-brand-card rounded-3xl p-6 border border-gray-800 space-y-4">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-800 pb-3">
+                    <div>
+                        <span class="text-xs font-bold text-orange-400 uppercase tracking-widest font-orbitron">Hardest Kenyan Trap Mix 2026</span>
+                        <h3 class="text-lg font-bold text-white">Moti the NRG</h3>
+                    </div>
+                    <a href="https://audiomack.com/oloostephan488/song/moti-the-nrg-hardest-kenyan-trap-mix-2026" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-black font-extrabold px-4 py-2 rounded-full text-xs flex items-center gap-1.5 font-orbitron transition-all">
+                        <i class="fa-solid fa-download"></i> Download Track
+                    </a>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-brand-dark">
+                    <iframe src="https://audiomack.com/embed/oloostephan488/song/moti-the-nrg-hardest-kenyan-trap-mix-2026?background=1" scrolling="no" width="100%" height="252" frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-brand-card rounded-3xl p-6 border border-gray-800 space-y-4">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-800 pb-3">
+                    <div>
+                        <span class="text-xs font-bold text-orange-400 uppercase tracking-widest font-orbitron">Toxic Lyrikali Series</span>
+                        <h3 class="text-lg font-bold text-white">Best of Toxic Lyrikali Mix 2026</h3>
+                    </div>
+                    <a href="https://audiomack.com/oloostephan488/playlist/best-of-toxic-lyrikali-mix-2026-backbencher-chinje-sinner-dj-messi" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-black font-extrabold px-4 py-2 rounded-full text-xs flex items-center gap-1.5 font-orbitron transition-all">
+                        <i class="fa-solid fa-download"></i> Download Playlist
+                    </a>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-brand-dark">
+                    <iframe src="https://audiomack.com/embed/oloostephan488/playlist/best-of-toxic-lyrikali-mix-2026-backbencher-chinje-sinner-dj-messi?background=1" scrolling="no" width="100%" height="252" frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-brand-card rounded-3xl p-6 border border-gray-800 space-y-4">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-800 pb-3">
+                    <div>
+                        <span class="text-xs font-bold text-orange-400 uppercase tracking-widest font-orbitron">Special Artist Tribute</span>
+                        <h3 class="text-lg font-bold text-white">Best of OG Khaligraph Jones</h3>
+                    </div>
+                    <a href="https://audiomack.com/oloostephan488/song/best-of-og-khaligraph-jones-kenyan-trap-mix-dj-messi" target="_blank" class="bg-orange-500 hover:bg-orange-600 text-black font-extrabold px-4 py-2 rounded-full text-xs flex items-center gap-1.5 font-orbitron transition-all">
+                        <i class="fa-solid fa-download"></i> Download Track
+                    </a>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-brand-dark">
+                    <iframe src="https://audiomack.com/embed/oloostephan488/song/best-of-og-khaligraph-jones-kenyan-trap-mix-dj-messi?background=1" scrolling="no" width="100%" height="252" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAN ENGAGEMENT POLL & WALL OF HEAT -->
+    <section id="poll" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Live Fan Poll -->
+        <div class="lg:col-span-5 bg-brand-card rounded-3xl p-6 sm:p-8 border border-gray-800 flex flex-col justify-between">
             <div>
-              <div class="mix-title">VIRUSI MBAYA VOL. 2</div>
-              <div class="mix-meta">Gengetone & Street Drill • DJ Messi</div>
+                <span class="text-xs font-bold text-brand-green uppercase tracking-widest font-orbitron">Interactive Vote</span>
+                <h2 class="text-2xl font-black text-white uppercase font-orbitron mt-1">Vote Next Mix Drop 📊</h2>
+                <p class="text-xs text-gray-400 mt-2">Which style should DJ Messi drop next weekend? Click to cast your vote.</p>
+
+                <div class="space-y-4 mt-6">
+                    <div onclick="votePoll('gengetone')" class="cursor-pointer bg-brand-dark hover:bg-brand-accent p-3.5 rounded-2xl border border-gray-800 transition-all">
+                        <div class="flex justify-between text-xs font-bold mb-1.5">
+                            <span class="text-white">Gengetone Vol. 3</span>
+                            <span id="pollPct-gengetone" class="text-brand-green font-mono">45%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div id="pollBar-gengetone" class="bg-brand-green h-full transition-all duration-500" style="width: 45%;"></div>
+                        </div>
+                    </div>
+
+                    <div onclick="votePoll('drill')" class="cursor-pointer bg-brand-dark hover:bg-brand-accent p-3.5 rounded-2xl border border-gray-800 transition-all">
+                        <div class="flex justify-between text-xs font-bold mb-1.5">
+                            <span class="text-white">254 Drill Takeover</span>
+                            <span id="pollPct-drill" class="text-brand-green font-mono">30%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div id="pollBar-drill" class="bg-brand-green h-full transition-all duration-500" style="width: 30%;"></div>
+                        </div>
+                    </div>
+
+                    <div onclick="votePoll('amapiano')" class="cursor-pointer bg-brand-dark hover:bg-brand-accent p-3.5 rounded-2xl border border-gray-800 transition-all">
+                        <div class="flex justify-between text-xs font-bold mb-1.5">
+                            <span class="text-white">Amapiano Logdrum Session</span>
+                            <span id="pollPct-amapiano" class="text-brand-green font-mono">15%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div id="pollBar-amapiano" class="bg-brand-green h-full transition-all duration-500" style="width: 15%;"></div>
+                        </div>
+                    </div>
+
+                    <div onclick="votePoll('trap')" class="cursor-pointer bg-brand-dark hover:bg-brand-accent p-3.5 rounded-2xl border border-gray-800 transition-all">
+                        <div class="flex justify-between text-xs font-bold mb-1.5">
+                            <span class="text-white">Street Trap Heat</span>
+                            <span id="pollPct-trap" class="text-brand-green font-mono">10%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div id="pollBar-trap" class="bg-brand-green h-full transition-all duration-500" style="width: 10%;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mix-actions">
-              <a href="https://www.youtube.com/watch?v=TmeQdQIJXew" target="_blank" class="btn-secondary" style="width:100%; text-align:center;"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
-            </div>
-          </div>
+
+            <span class="text-[10px] text-gray-500 mt-6 block text-center uppercase tracking-wider">Total Votes Cast: <span id="totalVotes" class="font-bold text-gray-300">1,482</span></span>
         </div>
 
-        <!-- THE 254 TAKEOVER -->
-        <div class="mix-card">
-          <div class="mix-card-video">
-            <iframe src="https://www.youtube.com/embed/5BlxBFT3Shw" title="THE 254 TAKEOVER" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <div class="mix-card-body">
+        <!-- Wall of Heat (Comment Board) -->
+        <div id="wall" class="lg:col-span-7 bg-brand-card rounded-3xl p-6 sm:p-8 border border-gray-800 flex flex-col justify-between">
             <div>
-              <div class="mix-title">THE 254 TAKEOVER</div>
-              <div class="mix-meta">Kenyan Trap & Urban Bangers • DJ Messi</div>
+                <span class="text-xs font-bold text-brand-green uppercase tracking-widest font-orbitron">Fan Street Board</span>
+                <h2 class="text-2xl font-black text-white uppercase font-orbitron mt-1">Wall of Heat 🔥</h2>
+
+                <!-- Post Comment Form -->
+                <form onsubmit="postFanComment(event)" class="mt-4 flex flex-col sm:flex-row gap-3">
+                    <input type="text" id="fanName" placeholder="Your Name / Handle" required class="bg-brand-dark border border-gray-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-brand-green outline-none sm:w-1/3">
+                    <input type="text" id="fanMsg" placeholder="Leave a shoutout or feedback..." required class="bg-brand-dark border border-gray-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-brand-green outline-none sm:w-2/3">
+                    <button type="submit" class="bg-brand-green text-black font-extrabold px-5 py-2.5 rounded-xl text-xs font-orbitron hover:bg-brand-hover whitespace-nowrap">
+                        POST
+                    </button>
+                </form>
+
+                <!-- Comments Feed -->
+                <div id="commentsFeed" class="space-y-3 mt-6 max-h-72 overflow-y-auto pr-2">
+                    <div class="bg-brand-dark p-3.5 rounded-2xl border border-gray-800/80">
+                        <div class="flex items-center justify-between text-xs mb-1">
+                            <strong class="text-brand-green font-orbitron">Kevin_254</strong>
+                            <span class="text-[10px] text-gray-500">2 mins ago</span>
+                        </div>
+                        <p class="text-xs text-gray-300">Virusi Mbaya Vol. 2 is playing on repeat in Nairobi West! Hardest drop this year 🔥</p>
+                    </div>
+
+                    <div class="bg-brand-dark p-3.5 rounded-2xl border border-gray-800/80">
+                        <div class="flex items-center justify-between text-xs mb-1">
+                            <strong class="text-brand-green font-orbitron">Brian M.</strong>
+                            <span class="text-[10px] text-gray-500">15 mins ago</span>
+                        </div>
+                        <p class="text-xs text-gray-300">DJ Messi on the decks never disappoints. Waiting for the Amapiano set next week!</p>
+                    </div>
+                </div>
             </div>
-            <div class="mix-actions">
-              <a href="https://www.youtube.com/watch?v=5BlxBFT3Shw" target="_blank" class="btn-secondary" style="width:100%; text-align:center;"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
+        </div>
+    </section>
+
+    <!-- EVENT CALENDAR & GIGS SECTION -->
+    <section id="gigs" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div>
+                <span class="text-xs font-bold text-brand-green uppercase tracking-widest font-orbitron">Live Schedule</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight font-orbitron mt-1">
+                    Upcoming <span class="text-brand-green">Gig Dates</span>
+                </h2>
             </div>
-          </div>
+            <button onclick="openModal('bookingModal')" class="bg-brand-card hover:bg-brand-accent border border-gray-700 text-white text-xs font-bold px-5 py-3 rounded-full w-fit">
+                <i class="fa-solid fa-plus text-brand-green mr-1.5"></i> Book DJ Messi for Event
+            </button>
         </div>
 
-      </div>
-    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-brand-card rounded-2xl p-5 border border-gray-800 flex flex-col justify-between gap-4">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-brand-green font-orbitron block">SAT, NOV 14 • 9:00 PM</span>
+                        <h3 class="text-lg font-bold text-white mt-0.5">Street Takeover Concert</h3>
+                        <span class="text-xs text-gray-400 flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-location-dot text-brand-green"></i> Kariobangi Social Hall, Nairobi
+                        </span>
+                    </div>
+                    <span class="text-xs px-3 py-1 rounded-full bg-brand-dark border border-gray-700 text-gray-300 font-medium">KES 300 Entry</span>
+                </div>
+                <button onclick="openVenueModal('Kariobangi Social Hall, Nairobi', 'Kariobangi South Kamunde Road')" class="w-full bg-brand-dark hover:bg-brand-accent border border-gray-700 text-xs font-bold py-2.5 rounded-xl text-gray-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-map-location-dot text-brand-green"></i> Get Interactive Venue Directions
+                </button>
+            </div>
 
-    <!-- AUDIOMACK TAB CONTENT -->
-    <div id="audiomackTab" class="tab-content" style="display:none;">
-      <div class="audiomack-grid">
-        
-        <!-- Best of Eastlando Vol. 1 -->
-        <div class="audiomack-card">
-          <iframe src="https://audiomack.com/embed/oloostephan488/song/best-of-eastlando-vol-1-ghetto-champs-kenyan-drill-trap-mix" scrolling="no" title="Best of Eastlando Vol. 1: Ghetto Champs Kenyan Drill & Trap Mix"></iframe>
+            <div class="bg-brand-card rounded-2xl p-5 border border-gray-800 flex flex-col justify-between gap-4">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-brand-green font-orbitron block">FRI, DEC 04 • 10:00 PM</span>
+                        <h3 class="text-lg font-bold text-white mt-0.5">Nairobi Drill & Gengetone Night</h3>
+                        <span class="text-xs text-gray-400 flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-location-dot text-brand-green"></i> CBD Club Zone, Nairobi
+                        </span>
+                    </div>
+                    <span class="text-xs px-3 py-1 rounded-full bg-brand-dark border border-gray-700 text-gray-300 font-medium">Free Entry Ladies</span>
+                </div>
+                <button onclick="openVenueModal('CBD Club Zone, Nairobi', 'Moi Avenue CBD Nairobi')" class="w-full bg-brand-dark hover:bg-brand-accent border border-gray-700 text-xs font-bold py-2.5 rounded-xl text-gray-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-map-location-dot text-brand-green"></i> Get Interactive Venue Directions
+                </button>
+            </div>
         </div>
+    </section>
 
-        <!-- Moti the NRG -->
-        <div class="audiomack-card">
-          <iframe src="https://audiomack.com/embed/oloostephan488/song/moti-the-nrg-hardest-kenyan-trap-mix-2026" scrolling="no" title="Moti the NRG | Hardest Kenyan Trap Mix 2026"></iframe>
+    <!-- EPK & TECHNICAL RIDER SECTION -->
+    <section id="epk" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="bg-brand-card rounded-3xl p-6 sm:p-10 border border-gray-800 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-7 space-y-6">
+                <div>
+                    <span class="text-xs font-bold text-brand-green uppercase tracking-widest font-orbitron">Press & Technical Specs</span>
+                    <h2 class="text-3xl font-black text-white uppercase font-orbitron mt-1">Electronic Press Kit (EPK)</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                    <strong>DJ Messi (The Record Breaker)</strong> is a high-energy Kenyan street DJ based in Nairobi, Kenya. Renowned for fast transitions, heavy bass control, and crowd-captivating stage presence across clubs, street festivals, and private concerts.
+                </p>
+
+                <!-- Tech Rider Specs -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="bg-brand-dark p-4 rounded-2xl border border-gray-800">
+                        <h4 class="text-xs font-bold text-brand-green uppercase mb-2 font-orbitron"><i class="fa-solid fa-sliders mr-1"></i> Technical Gear Rider</h4>
+                        <ul class="text-xs text-gray-400 space-y-1">
+                            <li>• 2x Pioneer CDJ-2000NXS2 or 3000</li>
+                            <li>• Pioneer DJM-900NXS2 Mixer</li>
+                            <li>• High-Power Booth Monitor Speaker</li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-dark p-4 rounded-2xl border border-gray-800">
+                        <h4 class="text-xs font-bold text-brand-green uppercase mb-2 font-orbitron"><i class="fa-solid fa-compact-disc mr-1"></i> Key Genres</h4>
+                        <ul class="text-xs text-gray-400 space-y-1">
+                            <li>• Gengetone & 254 Drill</li>
+                            <li>• Amapiano & Afro House</li>
+                            <li>• Hip-Hop & Street Trap</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-2 flex flex-wrap gap-3">
+                    <a href="https://wa.me/254117641510?text=Hi%20DJ%20Messi,%20I'd%20like%20to%20request%20your%20EPK%20and%20Technical%20Rider." target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-full text-xs flex items-center gap-2 font-orbitron transition-all">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Direct WhatsApp Booking Inquiry
+                    </a>
+                </div>
+            </div>
+
+            <!-- EPK Contact Summary Card -->
+            <div class="lg:col-span-5 bg-brand-dark rounded-2xl p-6 border border-gray-800 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4 border-b border-gray-800 pb-3 font-orbitron">Booking Hotline</h3>
+                    <div class="space-y-4 text-xs">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-xl bg-brand-card flex items-center justify-center text-brand-green">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block">Phone / WhatsApp / M-Pesa</span>
+                                <span class="text-white font-bold font-mono text-sm">+254 117 641 510</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-xl bg-brand-card flex items-center justify-center text-brand-green">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-gray-400 block">Base Location</span>
+                                <span class="text-white font-bold">Nairobi, Kenya 🇰🇪</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-gray-800 mt-6 text-center">
+                    <span class="text-[11px] text-gray-500">Managed by Brezzy On The Decks Management</span>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Best of Toxic Lyrikali Mix 2026 -->
-        <div class="audiomack-card">
-          <iframe src="https://audiomack.com/embed/oloostephan488/song/best-of-toxic-lyrikali-mix-2026-backbencher-chinje-sinner-dj-messi" scrolling="no" title="Best of Toxic Lyrikali Mix 2026 (Backbencher | Chinje | Sinner) | DJ Messi"></iframe>
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-800/80 pt-8 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center sm:text-left">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <span class="font-black text-base text-white block font-orbitron">BREZZY <span class="text-brand-green">ON THE DECKS</span></span>
+                <p class="text-xs text-gray-400 mt-0.5">© 2026 DJ Messi (The Record Breaker). Phone / M-Pesa: 0117 641 510</p>
+            </div>
+            <div class="text-xs text-gray-400 font-mono">
+                Nairobi, Kenya
+            </div>
         </div>
+    </footer>
 
-        <!-- Best of OG Khaligraph Jones -->
-        <div class="audiomack-card">
-          <iframe src="https://audiomack.com/embed/oloostephan488/song/best-of-og-khaligraph-jones-kenyan-trap-mix-dj-messi" scrolling="no" title="Best of OG (Khaligraph Jones) Kenyan Trap Mix | DJ Messi"></iframe>
+    <!-- STICKY BOTTOM AUDIO PLAYER BAR -->
+    <div class="fixed bottom-0 left-0 w-full z-40 bg-brand-card/95 backdrop-blur-xl border-t border-gray-800 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <!-- Player Details -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-dark border border-gray-700 flex items-center justify-center text-brand-green">
+                    <i id="stickyPlayIcon" class="fa-solid fa-compact-disc text-xl animate-spin"></i>
+                </div>
+                <div>
+                    <span id="stickyTitle" class="text-xs sm:text-sm font-bold text-white block truncate max-w-[150px] sm:max-w-xs font-orbitron">Virusi Mbaya Vol. 2</span>
+                    <span class="text-[10px] text-gray-400 block">DJ Messi Live Deck</span>
+                </div>
+            </div>
+
+            <!-- Equalizer Animation Bar -->
+            <div id="stickyEq" class="hidden sm:flex items-end gap-1 h-6 px-4">
+                <div class="w-1 bg-brand-green eq-bar eq-1 rounded-full"></div>
+                <div class="w-1 bg-brand-green eq-bar eq-2 rounded-full"></div>
+                <div class="w-1 bg-brand-green eq-bar eq-3 rounded-full"></div>
+                <div class="w-1 bg-brand-green eq-bar eq-4 rounded-full"></div>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleStickyPlay()" class="w-10 h-10 rounded-full bg-brand-green text-black font-bold flex items-center justify-center hover:scale-105 transition-transform">
+                    <i id="stickyBtnIcon" class="fa-solid fa-pause"></i>
+                </button>
+                <button onclick="openModal('mpesaModal')" class="bg-gray-800 hover:bg-gray-700 text-brand-green text-xs font-bold px-3 py-2 rounded-full hidden sm:flex items-center gap-1.5 border border-brand-green/30">
+                    <i class="fa-solid fa-heart"></i> Tip
+                </button>
+            </div>
         </div>
-
-      </div>
-
-      <div style="text-align: center; margin-top: 25px;">
-        <a href="https://audiomack.com/oloostephan488" target="_blank" class="btn-action"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Full Audiomack Profile</a>
-      </div>
     </div>
-  </section>
 
-  <!-- GIGS & EVENTS -->
-  <section class="container" id="events">
-    <div class="section-title">
-      <h2><i class="fa-solid fa-calendar-days" style="color:var(--accent);"></i> Gig Schedule & Live Shows</h2>
-    </div>
-    <div id="eventsList">
-      <div class="event-card">
-        <div>
-          <div class="event-date">EVERY FRIDAY</div>
-          <div class="event-info">
-            <h4>Club Trap & Drill Night</h4>
-            <p><i class="fa-solid fa-location-dot"></i> Kariobangi South / Nairobi</p>
-          </div>
+    <!-- MODAL 1: M-PESA TIP MODAL -->
+    <div id="mpesaModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-brand-green/50 rounded-3xl p-6 sm:p-8 max-w-md w-full relative shadow-2xl">
+            <button onclick="closeModal('mpesaModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center space-y-4">
+                <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full mx-auto flex items-center justify-center text-3xl">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white font-orbitron">Support DJ Messi</h3>
+                <p class="text-xs text-gray-300">Tip directly via M-Pesa to support upcoming mix drops and live street sets!</p>
+
+                <div class="bg-brand-dark p-4 rounded-2xl border border-gray-800 space-y-1">
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest block font-orbitron">M-Pesa Number</span>
+                    <span class="text-2xl font-black text-brand-green block font-mono">0117 641 510</span>
+                    <span class="text-xs text-gray-300 block font-semibold">Account Name: Brezzy On The Decks</span>
+                </div>
+
+                <div class="flex gap-2">
+                    <button onclick="copyMpesaNumber()" class="w-1/2 bg-brand-green text-black font-extrabold py-3 rounded-xl text-xs flex items-center justify-center gap-1.5 font-orbitron">
+                        <i class="fa-solid fa-copy"></i> COPY NO.
+                    </button>
+                    <a href="https://wa.me/254117641510?text=Hi%20DJ%20Messi,%20I've%20just%20sent%20a%20tip%20via%20M-Pesa!" target="_blank" class="w-1/2 bg-emerald-600 text-white font-extrabold py-3 rounded-xl text-xs flex items-center justify-center gap-1.5 font-orbitron">
+                        <i class="fa-brands fa-whatsapp"></i> CONFIRM
+                    </a>
+                </div>
+            </div>
         </div>
-        <a href="https://wa.me/254117641510?text=Booking%20Inquiry%20for%20Friday%20Gig" target="_blank" class="btn-secondary">Reserve Table</a>
-      </div>
     </div>
-  </section>
 
-  <!-- EPK SECTION -->
-  <section class="container" id="epk" style="margin-top: 40px;">
-    <div class="section-title">
-      <h2><i class="fa-solid fa-id-card" style="color:var(--accent);"></i> Electronic Press Kit (EPK)</h2>
-    </div>
-    <div style="background: var(--card-bg); border: 1px solid var(--border); padding:20px; border-radius:10px;">
-      <h3 style="color:#fff; margin-bottom:10px;">Tech Rider & Booking Requirements</h3>
-      <p style="color:var(--muted); font-size:0.9rem; margin-bottom:15px;">
-        Standard Setup: Pioneer CDJ-2000NXS2 / DJM-900NXS2 or Pioneer DDJ-FLX6/FLX10 Controllers. Minimum 2 High-Power Stage Monitors required for live club sets.
-      </p>
-      <div style="display:flex; gap:15px; flex-wrap:wrap;">
-        <a href="https://wa.me/254117641510?text=Promoter%20EPK%20Request" target="_blank" class="btn-action"><i class="fa-solid fa-file-pdf"></i> Request Full Rider PDF</a>
-        <a href="tel:+254117641510" class="btn-secondary"><i class="fa-solid fa-phone"></i> Call Management (+254 117 641 510)</a>
-      </div>
-    </div>
-  </section>
+    <!-- MODAL 2: BOOKING REQUEST MODAL -->
+    <div id="bookingModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-brand-green/50 rounded-3xl p-6 sm:p-8 max-w-md w-full relative shadow-2xl">
+            <button onclick="closeModal('bookingModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
 
-  <!-- M-PESA MODAL -->
-  <div class="modal" id="tipModal">
-    <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('tipModal')">&times;</span>
-      <h3 style="color:#fff; text-align:center;"><i class="fa-solid fa-heart" style="color:var(--accent);"></i> Support DJ Messi</h3>
-      <p style="color:var(--muted); text-align:center; font-size:0.85rem; margin-top:5px;">Send tips directly via M-Pesa</p>
-      <div class="mpesa-box">
-        <div style="font-size:0.8rem; color:var(--muted);">SEND MONEY / WHATSAPP NUMBER</div>
-        <div class="mpesa-number">0117 641 510</div>
-        <div style="font-size:0.8rem; color:#fff;">Account Name: <strong>Brezzy On The Decks</strong></div>
-      </div>
-      <a href="https://wa.me/254117641510?text=I%20just%20sent%20a%20tip%20on%20M-Pesa!" target="_blank" class="btn-action" style="display:block; text-align:center;">Confirm Tip on WhatsApp</a>
-    </div>
-  </div>
+            <div class="space-y-4">
+                <div class="text-center">
+                    <h3 class="text-2xl font-black text-white font-orbitron">Book DJ Messi</h3>
+                    <p class="text-xs text-gray-400 mt-1">Clubs, Street Parties, Weddings & Private Events</p>
+                </div>
 
-  <!-- ADMIN CMS MODAL -->
-  <div class="modal" id="cmsModal">
-    <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('cmsModal')">&times;</span>
-      <h3 style="color:#fff; text-align:center;"><i class="fa-solid fa-sliders" style="color:var(--accent);"></i> Admin CMS Dashboard</h3>
-      <p style="color:var(--muted); text-align:center; font-size:0.8rem;">Publish new mixes directly to your site</p>
-      
-      <form class="admin-form" onsubmit="saveNewMix(event)">
-        <label>Mix Title</label>
-        <input type="text" id="cmsTitle" placeholder="e.g. Virusi Mbaya Vol. 3" required>
-        
-        <label>YouTube Video ID</label>
-        <input type="text" id="cmsYtId" placeholder="e.g. TmeQdQIJXew" required>
-        
-        <label>Genre / Tags</label>
-        <input type="text" id="cmsGenre" placeholder="e.g. Gengetone & Drill" required>
-        
-        <button type="submit" class="btn-action" style="width:100%; margin-top:15px;">Publish to Website</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
-      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-      document.getElementById(tabId).style.display = 'block';
-      event.currentTarget.classList.add('active');
-    }
-
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-
-    function saveNewMix(e) {
-      e.preventDefault();
-      const title = document.getElementById('cmsTitle').value;
-      const ytId = document.getElementById('cmsYtId').value;
-      const genre = document.getElementById('cmsGenre').value;
-
-      const newCard = document.createElement('div');
-      newCard.className = 'mix-card';
-      newCard.innerHTML = `
-        <div class="mix-card-video">
-          <iframe src="https://www.youtube.com/embed/${ytId}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <form onsubmit="sendBookingRequest(event)" class="space-y-3 text-xs">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Your Name / Organization</label>
+                        <input type="text" id="bookName" required class="w-full bg-brand-dark border border-gray-700 rounded-lg p-2.5 text-white focus:border-brand-green outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Event Date</label>
+                        <input type="date" id="bookDate" required class="w-full bg-brand-dark border border-gray-700 rounded-lg p-2.5 text-white focus:border-brand-green outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Venue Type & Location</label>
+                        <input type="text" id="bookVenue" placeholder="e.g. Club Night - Westlands Nairobi" required class="w-full bg-brand-dark border border-gray-700 rounded-lg p-2.5 text-white focus:border-brand-green outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Estimated Budget (KES)</label>
+                        <input type="text" id="bookBudget" placeholder="e.g. KES 25,000" required class="w-full bg-brand-dark border border-gray-700 rounded-lg p-2.5 text-white focus:border-brand-green outline-none">
+                    </div>
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3 rounded-xl text-xs flex items-center justify-center gap-2 font-orbitron">
+                        <i class="fa-brands fa-whatsapp text-base"></i> SEND BOOKING VIA WHATSAPP
+                    </button>
+                </form>
+            </div>
         </div>
-        <div class="mix-card-body">
-          <div>
-            <div class="mix-title">${title}</div>
-            <div class="mix-meta">${genre} • DJ Messi</div>
-          </div>
-          <div class="mix-actions">
-            <a href="https://www.youtube.com/watch?v=${ytId}" target="_blank" class="btn-secondary" style="width:100%; text-align:center;"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
-          </div>
-        </div>
-      `;
+    </div>
 
-      document.getElementById('youtubeGrid').prepend(newCard);
-      closeModal('cmsModal');
-      alert('Mix published live!');
-    }
-  </script>
+    <!-- MODAL 3: SONG REQUEST MODAL -->
+    <div id="requestModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-brand-green/50 rounded-3xl p-6 sm:p-8 max-w-md w-full relative shadow-2xl">
+            <button onclick="closeModal('requestModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="space-y-4">
+                <div class="text-center">
+                    <h3 class="text-2xl font-black text-white font-orbitron">Request a Track</h3>
+                    <p class="text-xs text-gray-400 mt-1">Send your song request directly to DJ Messi's WhatsApp!</p>
+                </div>
+
+                <form onsubmit="sendSongRequest(event)" class="space-y-3 text-xs">
+                    <div>
+                        <label class="block text-gray-400 mb-1">Song / Artist Name</label>
+                        <input type="text" id="reqSong" required placeholder="e.g. Arbantone Mix / Gengetone banger" class="w-full bg-brand-dark border border-gray-700 rounded-lg p-2.5 text-white focus:border-brand-green outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-1">Shoutout Name (Optional)</label>
+                        <input type="text" id="reqShoutout" placeholder="e.g. Shoutout to Nairobi Eastland squad" class="w-full bg-brand-dark border border-gray-700 rounded-lg p-2.5 text-white focus:border-brand-green outline-none">
+                    </div>
+                    <button type="submit" class="w-full bg-brand-green text-black font-extrabold py-3 rounded-xl text-xs flex items-center justify-center gap-2 font-orbitron">
+                        <i class="fa-solid fa-paper-plane"></i> SUBMIT REQUEST VIA WHATSAPP
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: INTERACTIVE VENUE DIRECTIONS MODAL -->
+    <div id="venueModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-brand-green/50 rounded-3xl p-6 sm:p-8 max-w-lg w-full relative shadow-2xl">
+            <button onclick="closeModal('venueModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="space-y-4">
+                <div class="text-center">
+                    <h3 id="venueModalTitle" class="text-xl font-black text-white font-orbitron">Venue Directions</h3>
+                    <p id="venueModalAddress" class="text-xs text-gray-400 mt-1">Location Address</p>
+                </div>
+
+                <!-- Simulated Map Box -->
+                <div class="bg-brand-dark border border-gray-800 rounded-2xl h-48 relative overflow-hidden flex flex-col items-center justify-center p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-brand-green/20 text-brand-green flex items-center justify-center text-xl mb-2 animate-bounce">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <span class="text-xs font-bold text-white font-orbitron">Interactive Map Preview</span>
+                    <span class="text-[10px] text-gray-400 mt-1">Nairobi Navigation Pin Ready</span>
+                </div>
+
+                <button onclick="openExternalDirections()" class="w-full bg-brand-green text-black font-extrabold py-3 rounded-xl text-xs flex items-center justify-center gap-2 font-orbitron">
+                    <i class="fa-solid fa-diamond-turn-right"></i> OPEN IN GOOGLE MAPS
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initial Default YouTube Mixes Data
+        const defaultMixes = [
+            {
+                id: "1",
+                title: "VIRUSI MBAYA VOL. 2",
+                ytId: "TmeQdQIJXew",
+                genre: "Gengetone",
+                desc: "Street Gengetone and heavy Drill drops mixed live by DJ Messi.",
+                upvotes: 142,
+                tracklist: [
+                    "01. Intro Heat Drop - DJ Messi Tag",
+                    "02. Virusi Mbaya Main Assault",
+                    "03. Gengetone Bass Transition"
+                ]
+            },
+            {
+                id: "2",
+                title: "THE 254 TAKEOVER",
+                ytId: "5BlxBFT3Shw",
+                genre: "Drill",
+                desc: "The ultimate Kenyan Drill and Trap mix taking over the street sets.",
+                upvotes: 98,
+                tracklist: [
+                    "01. 254 Drill Opening Logdrum",
+                    "02. Nairobi Eastland Trap Fusion"
+                ]
+            }
+        ];
+
+        // Store active venue direction search
+        let currentMapQuery = "";
+
+        // Web Audio API Soundboard Synthesizer
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSFX(type) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const now = audioCtx.currentTime;
+
+            if (type === 'airhorn') {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(466.16, now); // Bb4
+                osc.frequency.setValueAtTime(622.25, now + 0.15); // Eb5
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.4);
+            } else if (type === 'scratch') {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(300, now);
+                osc.frequency.linearRampToValueAtTime(1200, now + 0.1);
+                osc.frequency.linearRampToValueAtTime(200, now + 0.25);
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.25);
+            } else if (type === 'laser') {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(1500, now);
+                osc.frequency.exponentialRampToValueAtTime(100, now + 0.2);
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.2);
+            } else if (type === 'tag') {
+                // Synthesized Voice Tag Simulation
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(220, now);
+                osc.frequency.exponentialRampToValueAtTime(440, now + 0.3);
+                gain.gain.setValueAtTime(0.4, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.5);
+            } else if (type === 'bass') {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(30, now + 0.6);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.6);
+            }
+        }
+
+        // Load or Initialize LocalStorage Data
+        function getStoredMixes() {
+            const data = localStorage.getItem('djmessi_yt_mixes');
+            return data ? JSON.parse(data) : defaultMixes;
+        }
+
+        // Render Mixes Grid
+        let currentFilter = 'All';
+
+        function renderMixes() {
+            const container = document.getElementById('youtubeGrid');
+            const mixes = getStoredMixes();
+            
+            const filtered = currentFilter === 'All' 
+                ? mixes 
+                : mixes.filter(m => m.genre.toLowerCase() === currentFilter.toLowerCase());
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="col-span-2 text-center text-gray-500 py-8 text-xs font-orbitron">No mixes found under genre "${currentFilter}".</div>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(mix => `
+                <div class="bg-brand-card rounded-3xl p-6 border border-gray-800 hover:border-brand-green/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black mb-4">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/${mix.ytId}" title="${mix.title}" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-black bg-brand-green px-3 py-0.5 rounded-full uppercase tracking-wider font-orbitron">${mix.genre}</span>
+                            <button onclick="upvoteMix('${mix.id}')" class="text-xs font-bold text-gray-300 hover:text-brand-green flex items-center gap-1 bg-brand-dark border border-gray-800 px-3 py-1 rounded-full transition-colors">
+                                🔥 <span id="upvoteCount-${mix.id}">${mix.upvotes || 0}</span> Upvotes
+                            </button>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white mb-1 font-orbitron">${mix.title}</h3>
+                        <p class="text-xs text-gray-400 mb-4">${mix.desc}</p>
+
+                        <!-- Tracklist Accordion -->
+                        <div class="bg-brand-dark rounded-2xl p-4 border border-gray-800/80 mb-4">
+                            <button onclick="toggleTracklist('tl-${mix.id}')" class="w-full flex items-center justify-between text-xs font-bold text-brand-green uppercase font-orbitron">
+                                <span>Tracklist Breakdown</span>
+                                <i class="fa-solid fa-chevron-down text-xs"></i>
+                            </button>
+                            <div id="tl-${mix.id}" class="hidden space-y-1.5 pt-3 text-xs text-gray-400 border-t border-gray-800/60 mt-3">
+                                ${(mix.tracklist || ['Tracklist preview available on playback']).map(track => `
+                                    <div class="flex items-center justify-between">
+                                        <span>${track}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800 gap-2">
+                        <button onclick="playOnSticky('${mix.title}', '${mix.ytId}')" class="bg-brand-accent hover:bg-gray-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center gap-2 transition-all font-orbitron">
+                            <i class="fa-solid fa-play text-brand-green"></i> PLAY ON DECK
+                        </button>
+                        <a href="https://youtube.com/watch?v=${mix.ytId}" target="_blank" class="text-xs text-gray-400 hover:text-white flex items-center gap-1 font-semibold">
+                            <i class="fa-brands fa-youtube text-red-500"></i> YouTube
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterGenre(genre) {
+            currentFilter = genre;
+            document.querySelectorAll('.genre-chip').forEach(btn => {
+                if (btn.innerText.toLowerCase() === genre.toLowerCase()) {
+                    btn.className = 'genre-chip active px-4 py-1.5 rounded-full text-xs font-bold bg-brand-green text-black border border-brand-green transition-all';
+                } else {
+                    btn.className = 'genre-chip px-4 py-1.5 rounded-full text-xs font-bold bg-brand-card text-gray-300 border border-gray-800 hover:border-brand-green transition-all';
+                }
+            });
+            renderMixes();
+        }
+
+        function upvoteMix(id) {
+            const mixes = getStoredMixes();
+            const mix = mixes.find(m => m.id === id);
+            if (mix) {
+                mix.upvotes = (mix.upvotes || 0) + 1;
+                localStorage.setItem('djmessi_yt_mixes', JSON.stringify(mixes));
+                const counter = document.getElementById(`upvoteCount-${id}`);
+                if (counter) counter.innerText = mix.upvotes;
+            }
+        }
+
+        function toggleTracklist(elementId) {
+            const el = document.getElementById(elementId);
+            if (el) el.classList.toggle('hidden');
+        }
+
+        // Save New Mix via CMS
+        function saveNewMix(e) {
+            e.preventDefault();
+            const mixes = getStoredMixes();
+            const newMix = {
+                id: Date.now().toString(),
+                title: document.getElementById('mixTitle').value.toUpperCase(),
+                ytId: document.getElementById('mixYtId').value.trim(),
+                genre: document.getElementById('mixGenre').value,
+                desc: document.getElementById('mixDesc').value || 'Fresh live set by DJ Messi.',
+                upvotes: 1,
+                tracklist: ["01. Live Set Intro", "02. Street Anthem Drop"]
+            };
+
+            mixes.unshift(newMix);
+            localStorage.setItem('djmessi_yt_mixes', JSON.stringify(mixes));
+            renderMixes();
+            document.getElementById('addMixForm').reset();
+            alert('New Mix Published to Live Grid!');
+            toggleAdminPanel();
+        }
+
+        function resetCMSData() {
+            if (confirm('Reset dynamic mix cards to default state?')) {
+                localStorage.removeItem('djmessi_yt_mixes');
+                renderMixes();
+            }
+        }
+
+        // Fan Poll State
+        const pollVotes = {
+            gengetone: 667,
+            drill: 445,
+            amapiano: 222,
+            trap: 148
+        };
+
+        function votePoll(option) {
+            pollVotes[option] += 1;
+            const total = pollVotes.gengetone + pollVotes.drill + pollVotes.amapiano + pollVotes.trap;
+            
+            document.getElementById('totalVotes').innerText = total.toLocaleString();
+
+            for (const key in pollVotes) {
+                const pct = Math.round((pollVotes[key] / total) * 100);
+                document.getElementById(`pollPct-${key}`).innerText = `${pct}%`;
+                document.getElementById(`pollBar-${key}`).style.width = `${pct}%`;
+            }
+        }
+
+        // Wall of Heat Post Comment
+        function postFanComment(e) {
+            e.preventDefault();
+            const name = document.getElementById('fanName').value.trim();
+            const msg = document.getElementById('fanMsg').value.trim();
+
+            if (!name || !msg) return;
+
+            const feed = document.getElementById('commentsFeed');
+            const newComment = document.createElement('div');
+            newComment.className = 'bg-brand-dark p-3.5 rounded-2xl border border-brand-green/40 transition-all';
+            newComment.innerHTML = `
+                <div class="flex items-center justify-between text-xs mb-1">
+                    <strong class="text-brand-green font-orbitron">${name}</strong>
+                    <span class="text-[10px] text-gray-500">Just now</span>
+                </div>
+                <p class="text-xs text-gray-300">${msg}</p>
+            `;
+
+            feed.prepend(newComment);
+            document.getElementById('fanName').value = '';
+            document.getElementById('fanMsg').value = '';
+        }
+
+        // Venue Directions Modal
+        function openVenueModal(venueName, query) {
+            document.getElementById('venueModalTitle').innerText = venueName;
+            document.getElementById('venueModalAddress').innerText = query;
+            currentMapQuery = encodeURIComponent(query);
+            openModal('venueModal');
+        }
+
+        function openExternalDirections() {
+            if (currentMapQuery) {
+                window.open(`https://www.google.com/maps/search/?api=1&query=${currentMapQuery}`, '_blank');
+            }
+        }
+
+        // Tab Switcher
+        function switchTab(type) {
+            const ytContent = document.getElementById('content-youtube');
+            const amContent = document.getElementById('content-audiomack');
+            const ytBtn = document.getElementById('tab-youtube');
+            const amBtn = document.getElementById('tab-audiomack');
+
+            if (type === 'youtube') {
+                ytContent.classList.remove('hidden');
+                amContent.classList.add('hidden');
+                ytBtn.className = 'px-5 py-2 rounded-full text-xs font-bold bg-brand-green text-black transition-all font-orbitron';
+                amBtn.className = 'px-5 py-2 rounded-full text-xs font-bold text-gray-400 hover:text-white transition-all font-orbitron';
+            } else {
+                ytContent.classList.add('hidden');
+                amContent.classList.remove('hidden');
+                amBtn.className = 'px-5 py-2 rounded-full text-xs font-bold bg-brand-green text-black transition-all font-orbitron';
+                ytBtn.className = 'px-5 py-2 rounded-full text-xs font-bold text-gray-400 hover:text-white transition-all font-orbitron';
+            }
+        }
+
+        // Sticky Bottom Deck Player Controls
+        let isPlaying = true;
+        function playOnSticky(title, ytId) {
+            document.getElementById('stickyTitle').innerText = title;
+            document.getElementById('heroIframe').src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
+            document.getElementById('heroTitle').innerText = title;
+            isPlaying = true;
+            document.getElementById('stickyBtnIcon').className = 'fa-solid fa-pause';
+            document.getElementById('stickyEq').classList.remove('hidden');
+        }
+
+        function toggleStickyPlay() {
+            const eq = document.getElementById('stickyEq');
+            const btnIcon = document.getElementById('stickyBtnIcon');
+            if (isPlaying) {
+                isPlaying = false;
+                btnIcon.className = 'fa-solid fa-play';
+                eq.classList.add('hidden');
+            } else {
+                isPlaying = true;
+                btnIcon.className = 'fa-solid fa-pause';
+                eq.classList.remove('hidden');
+            }
+        }
+
+        // Modals
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function toggleAdminPanel() {
+            document.getElementById('adminPanel').classList.toggle('hidden');
+        }
+
+        function copyMpesaNumber() {
+            const dummy = document.createElement('textarea');
+            dummy.value = '0117641510';
+            document.body.appendChild(dummy);
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            alert('M-Pesa Number 0117 641 510 copied!');
+        }
+
+        // Structured WhatsApp Handlers
+        function sendBookingRequest(e) {
+            e.preventDefault();
+            const name = document.getElementById('bookName').value;
+            const date = document.getElementById('bookDate').value;
+            const venue = document.getElementById('bookVenue').value;
+            const budget = document.getElementById('bookBudget').value;
+
+            const text = encodeURIComponent(
+                `*NEW BOOKING INQUIRY - BREZZY ON THE DECKS*\n\n` +
+                `*Name/Org:* ${name}\n` +
+                `*Date:* ${date}\n` +
+                `*Venue/Location:* ${venue}\n` +
+                `*Budget:* ${budget}\n\n` +
+                `Please confirm availability.`
+            );
+
+            window.open(`https://wa.me/254117641510?text=${text}`, '_blank');
+            closeModal('bookingModal');
+        }
+
+        function sendSongRequest(e) {
+            e.preventDefault();
+            const song = document.getElementById('reqSong').value;
+            const shoutout = document.getElementById('reqShoutout').value;
+
+            const text = encodeURIComponent(
+                `*TRACK / MIX REQUEST*\n\n` +
+                `*Song:* ${song}\n` +
+                `*Shoutout:* ${shoutout || 'N/A'}`
+            );
+
+            window.open(`https://wa.me/254117641510?text=${text}`, '_blank');
+            closeModal('requestModal');
+        }
+
+        // Initialize App
+        window.onload = function() {
+            renderMixes();
+        };
+    </script>
 </body>
 </html>
