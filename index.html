@@ -214,6 +214,77 @@
       gap: 8px;
     }
 
+    /* CUSTOM AUDIO PLAYER */
+    .custom-player-card {
+      background: var(--card-bg);
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 20px rgba(0, 255, 102, 0.15);
+      border-radius: 14px;
+      padding: 20px;
+      max-width: 550px;
+      margin: 0 auto;
+      backdrop-filter: blur(12px);
+    }
+    .player-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .player-subtitle {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+    .player-controls-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .play-btn-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--accent-glow);
+      transition: transform 0.2s;
+    }
+    .play-btn-circle:active {
+      transform: scale(0.92);
+    }
+    .progress-container {
+      flex: 1;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      transition: width 0.1s linear;
+    }
+    .time-display {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
     /* TABS */
     .tab-buttons {
       display: flex;
@@ -292,24 +363,6 @@
       height: 252px;
       border: none;
       border-radius: 8px;
-    }
-
-    /* TRACKLIST ACCORDION */
-    .tracklist-box {
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: none;
-      margin-top: 10px;
-    }
-    .tracklist-box.active {
-      display: block;
-    }
-    .tracklist-box ol {
-      padding-left: 18px;
     }
 
     /* SOUNDBOARD */
@@ -458,7 +511,7 @@
       <div class="brand">BREZZY <span>ON THE DECKS</span></div>
       <ul class="nav-links">
         <li><a href="#mixes">Mixes</a></li>
-        <li><a href="#dancer">Vaileti MJ</a></li>
+        <li><a href="#featured-audio">Street Banger</a></li>
         <li><a href="#soundboard">Soundboard</a></li>
         <li><a href="#events">Gigs</a></li>
       </ul>
@@ -480,6 +533,43 @@
       <div class="hero-buttons">
         <a href="#mixes" class="btn-action"><i class="fa-solid fa-play"></i> Stream Mixes</a>
         <a href="https://wa.me/254117641510?text=I%20want%20to%20book%20DJ%20Messi" target="_blank" class="btn-secondary"><i class="fa-brands fa-whatsapp"></i> Book DJ Messi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTION 3: CUSTOM AUDIO PLAYER SPOTLIGHT -->
+  <section class="container" id="featured-audio" style="margin-top: 25px;">
+    <div class="section-title">
+      <h2><i class="fa-solid fa-fire" style="color:var(--accent);"></i> Hot Street Banger</h2>
+    </div>
+
+    <div class="custom-player-card">
+      <div class="player-title">BEST OF TOXIC LYRIKALI 2026</div>
+      <div class="player-subtitle">DJ MESSI // EXCLUSIVE STREET SET</div>
+
+      <!-- Hidden Audio Element (Replace source with any direct mp3 link) -->
+      <audio id="mainAudio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+      <div class="player-controls-row">
+        <button class="play-btn-circle" id="playBtn" onclick="toggleMainAudio()">
+          <i class="fa-solid fa-play" id="playIcon"></i>
+        </button>
+
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar" onclick="seekAudio(event)">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="totalDuration">0:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 8px; margin-top: 16px;">
+        <a href="https://wa.me/254117641510?text=Send%20me%20the%20Toxic%20Lyrikali%20Mix%20Audio" target="_blank" class="btn-secondary" style="flex: 1; text-align: center; font-size: 0.8rem;">
+          <i class="fa-brands fa-whatsapp"></i> Request Audio on WA
+        </a>
       </div>
     </div>
   </section>
@@ -508,17 +598,7 @@
               <div style="font-weight:700; color:#fff;">VIRUSI MBAYA VOL. 2</div>
               <div style="font-size:0.8rem; color:var(--muted); margin-bottom:12px;">Gengetone & Street Drill</div>
             </div>
-            <div style="display:flex; gap:8px;">
-              <a href="https://www.youtube.com/watch?v=TmeQdQIJXew" target="_blank" class="btn-secondary" style="flex:1;"><i class="fa-brands fa-youtube"></i> Watch</a>
-              <button class="btn-secondary" onclick="toggleTracklist('tl1')"><i class="fa-solid fa-list"></i></button>
-            </div>
-            <div class="tracklist-box" id="tl1">
-              <ol>
-                <li>Virusi Mbaya Intro - DJ Messi</li>
-                <li>Kenyan Drill Bangers 2026</li>
-                <li>Nairobi Street Anthems</li>
-              </ol>
-            </div>
+            <a href="https://www.youtube.com/watch?v=TmeQdQIJXew" target="_blank" class="btn-secondary" style="width:100%;"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
           </div>
         </div>
 
@@ -531,17 +611,7 @@
               <div style="font-weight:700; color:#fff;">THE 254 TAKEOVER</div>
               <div style="font-size:0.8rem; color:var(--muted); margin-bottom:12px;">Kenyan Trap & Urban Bangers</div>
             </div>
-            <div style="display:flex; gap:8px;">
-              <a href="https://www.youtube.com/watch?v=5BlxBFT3Shw" target="_blank" class="btn-secondary" style="flex:1;"><i class="fa-brands fa-youtube"></i> Watch</a>
-              <button class="btn-secondary" onclick="toggleTracklist('tl2')"><i class="fa-solid fa-list"></i></button>
-            </div>
-            <div class="tracklist-box" id="tl2">
-              <ol>
-                <li>254 Trap Intro - DJ Messi</li>
-                <li>Heavyweight Nairobi Heat</li>
-                <li>Urban Club Banger Set</li>
-              </ol>
-            </div>
+            <a href="https://www.youtube.com/watch?v=5BlxBFT3Shw" target="_blank" class="btn-secondary" style="width:100%;"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
           </div>
         </div>
 
@@ -551,61 +621,11 @@
     <!-- AUDIOMACK TAB -->
     <div id="audiomackTab" class="tab-content" style="display:none;">
       <div class="audiomack-grid">
-        
         <div class="audiomack-card">
           <iframe src="https://audiomack.com/embed/oloostephan488/song/best-of-eastlando-vol-1-ghetto-champs-kenyan-drill-trap-mix" scrolling="no"></iframe>
-          <a href="https://audiomack.com/oloostephan488/song/best-of-eastlando-vol-1-ghetto-champs-kenyan-drill-trap-mix" target="_blank" class="btn-secondary" style="text-align:center;"><i class="fa-solid fa-download"></i> Save Track</a>
         </div>
-
         <div class="audiomack-card">
           <iframe src="https://audiomack.com/embed/oloostephan488/song/moti-the-nrg-hardest-kenyan-trap-mix-2026" scrolling="no"></iframe>
-          <a href="https://audiomack.com/oloostephan488/song/moti-the-nrg-hardest-kenyan-trap-mix-2026" target="_blank" class="btn-secondary" style="text-align:center;"><i class="fa-solid fa-download"></i> Save Track</a>
-        </div>
-
-        <div class="audiomack-card">
-          <iframe src="https://audiomack.com/embed/oloostephan488/song/best-of-toxic-lyrikali-mix-2026-backbencher-chinje-sinner-dj-messi" scrolling="no"></iframe>
-          <a href="https://audiomack.com/oloostephan488/song/best-of-toxic-lyrikali-mix-2026-backbencher-chinje-sinner-dj-messi" target="_blank" class="btn-secondary" style="text-align:center;"><i class="fa-solid fa-download"></i> Save Track</a>
-        </div>
-
-        <div class="audiomack-card">
-          <iframe src="https://audiomack.com/embed/oloostephan488/song/best-of-og-khaligraph-jones-kenyan-trap-mix-dj-messi" scrolling="no"></iframe>
-          <a href="https://audiomack.com/oloostephan488/song/best-of-og-khaligraph-jones-kenyan-trap-mix-dj-messi" target="_blank" class="btn-secondary" style="text-align:center;"><i class="fa-solid fa-download"></i> Save Track</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- VAILETI MJ TIKTOK FEATURE -->
-  <section class="container" id="dancer" style="margin-top: 35px;">
-    <div class="section-title">
-      <h2><i class="fa-solid fa-fire" style="color:var(--accent);"></i> Featured Dancer: Vaileti MJ</h2>
-    </div>
-
-    <div class="mix-card" style="max-width: 500px; margin: 0 auto; padding: 16px; align-items: center;">
-      <!-- TikTok Embed Player -->
-      <div style="width: 100%; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@vailetimj/video/7688701373076098356" data-video-id="7688701373076098356" style="max-width: 100%; min-width: 325px; margin: 0;">
-          <section>
-            <a target="_blank" title="@vailetimj" href="https://www.tiktok.com/@vailetimj?refer=embed">@vailetimj</a>
-          </section>
-        </blockquote> 
-        <script async src="https://www.tiktok.com/embed.js"></script>
-      </div>
-
-      <!-- Song Action Box -->
-      <div style="width: 100%; background: rgba(0,0,0,0.6); padding: 14px; border-radius: 10px; border: 1px solid var(--border); text-align: center; margin-top: 14px;">
-        <div style="font-size: 0.75rem; color: var(--accent); font-weight: 700; letter-spacing: 1px;">VIRAL TIKTOK SOUND</div>
-        <div style="font-weight: 700; color: #fff; font-size: 0.95rem; margin: 4px 0;">Vaileti MJ Dance Track</div>
-        <p style="color: var(--muted); font-size: 0.8rem; margin-bottom: 12px;">Listen to her viral dance video sound above or request full track</p>
-
-        <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-          <a href="https://www.tiktok.com/@vailetimj/video/7688701373076098356" target="_blank" class="btn-action" style="flex: 1; font-size: 0.8rem;">
-            <i class="fa-brands fa-tiktok"></i> Open TikTok
-          </a>
-          <a href="https://wa.me/254117641510?text=Hey%20DJ%20Messi,%20send%20me%20the%20song/mix%20from%20Vaileti%20MJ's%20TikTok%20video!" target="_blank" class="btn-secondary" style="flex: 1; font-size: 0.8rem;">
-            <i class="fa-brands fa-whatsapp"></i> Get Song on WA
-          </a>
         </div>
       </div>
     </div>
@@ -667,21 +687,49 @@
     </div>
   </div>
 
-  <!-- CMS MODAL -->
-  <div class="modal" id="cmsModal">
-    <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('cmsModal')">&times;</span>
-      <h3 style="color:#fff; text-align:center;"><i class="fa-solid fa-sliders" style="color:var(--accent);"></i> Admin CMS</h3>
-      <form style="margin-top:15px;" onsubmit="saveNewMix(event)">
-        <input type="text" id="cmsTitle" placeholder="Mix Title" style="width:100%; padding:10px; background:#000; border:1px solid var(--border); border-radius:6px; color:#fff; margin-bottom:10px;" required>
-        <input type="text" id="cmsYtId" placeholder="YouTube Video ID" style="width:100%; padding:10px; background:#000; border:1px solid var(--border); border-radius:6px; color:#fff; margin-bottom:10px;" required>
-        <button type="submit" class="btn-action" style="width:100%;">Publish Mix</button>
-      </form>
-    </div>
-  </div>
-
   <script>
-    // Tab Switcher
+    // Audio Player Controls
+    const audio = document.getElementById('mainAudio');
+    const playIcon = document.getElementById('playIcon');
+    const progressFill = document.getElementById('progressFill');
+    const currentTimeEl = document.getElementById('currentTime');
+    const totalDurationEl = document.getElementById('totalDuration');
+
+    function toggleMainAudio() {
+      if (audio.paused) {
+        audio.play();
+        playIcon.className = 'fa-solid fa-pause';
+      } else {
+        audio.pause();
+        playIcon.className = 'fa-solid fa-play';
+      }
+    }
+
+    audio.addEventListener('timeupdate', () => {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = pct + '%';
+      currentTimeEl.innerText = formatTime(audio.currentTime);
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      totalDurationEl.innerText = formatTime(audio.duration);
+    });
+
+    function seekAudio(e) {
+      const bar = document.getElementById('progressBar');
+      const rect = bar.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const pct = clickX / rect.width;
+      audio.currentTime = pct * audio.duration;
+    }
+
+    function formatTime(secs) {
+      if (isNaN(secs)) return "0:00";
+      const m = Math.floor(secs / 60);
+      const s = Math.floor(secs % 60);
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
       document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
@@ -689,12 +737,6 @@
       event.currentTarget.classList.add('active');
     }
 
-    // Toggle Tracklist
-    function toggleTracklist(id) {
-      document.getElementById(id).classList.toggle('active');
-    }
-
-    // Modal Control
     function openModal(id) {
       document.getElementById(id).style.display = 'flex';
     }
@@ -703,7 +745,6 @@
       document.getElementById(id).style.display = 'none';
     }
 
-    // Soundboard
     function playEffect(freq, type) {
       try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -721,32 +762,7 @@
       } catch (e) {}
     }
 
-    // CMS Mix Publisher
-    function saveNewMix(e) {
-      e.preventDefault();
-      const title = document.getElementById('cmsTitle').value;
-      const ytId = document.getElementById('cmsYtId').value;
-
-      const newCard = document.createElement('div');
-      newCard.className = 'mix-card';
-      newCard.innerHTML = `
-        <div class="mix-card-video">
-          <iframe src="https://www.youtube.com/embed/${ytId}" title="${title}" allowfullscreen></iframe>
-        </div>
-        <div class="mix-card-body">
-          <div>
-            <div style="font-weight:700; color:#fff;">${title}</div>
-            <div style="font-size:0.8rem; color:var(--muted); margin-bottom:12px;">New Release • DJ Messi</div>
-          </div>
-          <a href="https://www.youtube.com/watch?v=${ytId}" target="_blank" class="btn-secondary" style="width:100%;"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
-        </div>
-      `;
-
-      document.getElementById('youtubeGrid').prepend(newCard);
-      closeModal('cmsModal');
-    }
-
-    // Live Cyberpunk Background Visualizer
+    // Live Cyberpunk Visualizer Canvas
     const canvas = document.getElementById('bgVisualizer');
     const ctx = canvas.getContext('2d');
 
@@ -768,7 +784,6 @@
 
     function animateBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
       const gradient = ctx.createRadialGradient(
         canvas.width / 2, canvas.height / 3, 50,
         canvas.width / 2, canvas.height / 3, canvas.width * 0.8
@@ -781,10 +796,8 @@
       particles.forEach(p => {
         p.x += p.dx;
         p.y += p.dy;
-
         if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(0, 255, 102, ${p.alpha})`;
@@ -795,7 +808,6 @@
 
       requestAnimationFrame(animateBackground);
     }
-
     animateBackground();
   </script>
 </body>
