@@ -230,17 +230,21 @@
       gap: 10px;
     }
 
-    /* AUDIOMACK EMBED CONTAINER */
-    .audiomack-container {
+    /* AUDIOMACK EMBED GRID */
+    .audiomack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .audiomack-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 20px;
-      text-align: center;
+      padding: 10px;
     }
-    .audiomack-container iframe {
+    .audiomack-card iframe {
       width: 100%;
-      height: 400px;
+      height: 252px;
       border: none;
       border-radius: 8px;
     }
@@ -379,12 +383,12 @@
   <!-- MIXES SECTION -->
   <section class="container" id="mixes">
     <div class="section-title">
-      <h2><i class="fa-solid fa-compact-disc" style="color:var(--accent);"></i> Latest Mixes</h2>
+      <h2><i class="fa-solid fa-compact-disc" style="color:var(--accent);"></i> Stream Official Mixes</h2>
     </div>
 
     <div class="tab-buttons">
-      <button class="tab-btn active" onclick="switchTab('youtubeTab')"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i> YouTube Video Stream</button>
-      <button class="tab-btn" onclick="switchTab('audiomackTab')"><i class="fa-solid fa-music" style="color:var(--accent);"></i> Audiomack Audio Stream</button>
+      <button class="tab-btn active" onclick="switchTab('youtubeTab')"><i class="fa-brands fa-youtube" style="color:#ff0000;"></i> YouTube Videos</button>
+      <button class="tab-btn" onclick="switchTab('audiomackTab')"><i class="fa-solid fa-music" style="color:var(--accent);"></i> Audiomack Audio Streams</button>
     </div>
 
     <!-- YOUTUBE TAB CONTENT -->
@@ -428,12 +432,32 @@
 
     <!-- AUDIOMACK TAB CONTENT -->
     <div id="audiomackTab" class="tab-content" style="display:none;">
-      <div class="audiomack-container">
-        <h3 style="margin-bottom:15px; color:#fff;">Stream Official Audio Sets on Audiomack</h3>
-        <iframe src="https://audiomack.com/embed/oloostephan488" title="DJ Messi Audiomack"></iframe>
-        <div style="margin-top:15px;">
-          <a href="https://audiomack.com/oloostephan488" target="_blank" class="btn-action"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open @oloostephan488 Profile</a>
+      <div class="audiomack-grid">
+        
+        <!-- Best of Eastlando Vol. 1 -->
+        <div class="audiomack-card">
+          <iframe src="https://audiomack.com/embed/oloostephan488/song/best-of-eastlando-vol-1-ghetto-champs-kenyan-drill-trap-mix" scrolling="no" title="Best of Eastlando Vol. 1: Ghetto Champs Kenyan Drill & Trap Mix"></iframe>
         </div>
+
+        <!-- Moti the NRG -->
+        <div class="audiomack-card">
+          <iframe src="https://audiomack.com/embed/oloostephan488/song/moti-the-nrg-hardest-kenyan-trap-mix-2026" scrolling="no" title="Moti the NRG | Hardest Kenyan Trap Mix 2026"></iframe>
+        </div>
+
+        <!-- Unruly Drill & Hiphop -->
+        <div class="audiomack-card">
+          <iframe src="https://audiomack.com/embed/oloostephan488/song/brezzy-on-the-decks-present-unruly-drill-and-hiphop-mix" scrolling="no" title="Brezzy on the decks present unruly drill and hiphop mix"></iframe>
+        </div>
+
+        <!-- Best of OG Khaligraph Jones -->
+        <div class="audiomack-card">
+          <iframe src="https://audiomack.com/embed/oloostephan488/song/best-of-og-khaligraph-jones-kenyan-trap-mix-dj-messi" scrolling="no" title="Best of OG (Khaligraph Jones) Kenyan Trap Mix | DJ Messi"></iframe>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 25px;">
+        <a href="https://audiomack.com/oloostephan488" target="_blank" class="btn-action"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Full Audiomack Profile</a>
       </div>
     </div>
   </section>
