@@ -34,6 +34,17 @@
       overflow-x: hidden;
     }
 
+    #bgVisualizer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      background: #07090e;
+    }
+
     h1, h2, h3, .brand {
       font-family: 'Orbitron', sans-serif;
       text-transform: uppercase;
@@ -438,12 +449,16 @@
 </head>
 <body>
 
+  <!-- LIVE BACKGROUND CANVAS -->
+  <canvas id="bgVisualizer"></canvas>
+
   <!-- NAV -->
   <nav>
     <div class="container nav-inner">
       <div class="brand">BREZZY <span>ON THE DECKS</span></div>
       <ul class="nav-links">
         <li><a href="#mixes">Mixes</a></li>
+        <li><a href="#dancer">Vaileti MJ</a></li>
         <li><a href="#soundboard">Soundboard</a></li>
         <li><a href="#events">Gigs</a></li>
       </ul>
@@ -561,6 +576,41 @@
     </div>
   </section>
 
+  <!-- VAILETI MJ TIKTOK FEATURE -->
+  <section class="container" id="dancer" style="margin-top: 35px;">
+    <div class="section-title">
+      <h2><i class="fa-solid fa-fire" style="color:var(--accent);"></i> Featured Dancer: Vaileti MJ</h2>
+    </div>
+
+    <div class="mix-card" style="max-width: 500px; margin: 0 auto; padding: 16px; align-items: center;">
+      <!-- TikTok Embed Player -->
+      <div style="width: 100%; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@vailetimj/video/7688701373076098356" data-video-id="7688701373076098356" style="max-width: 100%; min-width: 325px; margin: 0;">
+          <section>
+            <a target="_blank" title="@vailetimj" href="https://www.tiktok.com/@vailetimj?refer=embed">@vailetimj</a>
+          </section>
+        </blockquote> 
+        <script async src="https://www.tiktok.com/embed.js"></script>
+      </div>
+
+      <!-- Song Action Box -->
+      <div style="width: 100%; background: rgba(0,0,0,0.6); padding: 14px; border-radius: 10px; border: 1px solid var(--border); text-align: center; margin-top: 14px;">
+        <div style="font-size: 0.75rem; color: var(--accent); font-weight: 700; letter-spacing: 1px;">VIRAL TIKTOK SOUND</div>
+        <div style="font-weight: 700; color: #fff; font-size: 0.95rem; margin: 4px 0;">Vaileti MJ Dance Track</div>
+        <p style="color: var(--muted); font-size: 0.8rem; margin-bottom: 12px;">Listen to her viral dance video sound above or request full track</p>
+
+        <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://www.tiktok.com/@vailetimj/video/7688701373076098356" target="_blank" class="btn-action" style="flex: 1; font-size: 0.8rem;">
+            <i class="fa-brands fa-tiktok"></i> Open TikTok
+          </a>
+          <a href="https://wa.me/254117641510?text=Hey%20DJ%20Messi,%20send%20me%20the%20song/mix%20from%20Vaileti%20MJ's%20TikTok%20video!" target="_blank" class="btn-secondary" style="flex: 1; font-size: 0.8rem;">
+            <i class="fa-brands fa-whatsapp"></i> Get Song on WA
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- DJ SOUNDBOARD -->
   <section class="container" id="soundboard" style="margin-top: 35px;">
     <div class="section-title">
@@ -631,6 +681,7 @@
   </div>
 
   <script>
+    // Tab Switcher
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
       document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
@@ -638,10 +689,12 @@
       event.currentTarget.classList.add('active');
     }
 
+    // Toggle Tracklist
     function toggleTracklist(id) {
       document.getElementById(id).classList.toggle('active');
     }
 
+    // Modal Control
     function openModal(id) {
       document.getElementById(id).style.display = 'flex';
     }
@@ -650,6 +703,7 @@
       document.getElementById(id).style.display = 'none';
     }
 
+    // Soundboard
     function playEffect(freq, type) {
       try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -667,6 +721,7 @@
       } catch (e) {}
     }
 
+    // CMS Mix Publisher
     function saveNewMix(e) {
       e.preventDefault();
       const title = document.getElementById('cmsTitle').value;
@@ -690,6 +745,58 @@
       document.getElementById('youtubeGrid').prepend(newCard);
       closeModal('cmsModal');
     }
+
+    // Live Cyberpunk Background Visualizer
+    const canvas = document.getElementById('bgVisualizer');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const particles = Array.from({ length: 40 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 0.7,
+      dy: (Math.random() - 0.5) * 0.7,
+      alpha: Math.random() * 0.5 + 0.2
+    }));
+
+    function animateBackground() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      const gradient = ctx.createRadialGradient(
+        canvas.width / 2, canvas.height / 3, 50,
+        canvas.width / 2, canvas.height / 3, canvas.width * 0.8
+      );
+      gradient.addColorStop(0, 'rgba(0, 255, 102, 0.08)');
+      gradient.addColorStop(1, 'rgba(7, 9, 14, 1)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 255, 102, ${p.alpha})`;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#00ff66';
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animateBackground);
+    }
+
+    animateBackground();
   </script>
 </body>
 </html>
